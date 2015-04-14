@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ebea7c930b9e4301b5a145864c22c7e7" Name="Diagram1">
+        <EntityTypeShape EntityType="FrameworkModel.SisListaPermiso" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrameworkModel.SisMenu" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrameworkModel.SisOperacione" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrameworkModel.SisRol" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrameworkModel.SisUsuario" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrameworkModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="FrameworkModel.FK_sisListaPermiso_sisMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="FrameworkModel.FK_sisListaPermiso_sisOperaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="FrameworkModel.SisRolPermiso" ManuallyRouted="false" />
+        <AssociationConnector Association="FrameworkModel.SisUsuarioRol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

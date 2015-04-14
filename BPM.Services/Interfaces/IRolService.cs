@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+
+using BPM.Repositories.DataContext;
+
+namespace BPM.Services.Interfaces
+{
+    public interface IRolService
+    {
+        List<SisRol> GetActiveRoles();
+        SisRol GetRolById(int id);
+        SisRol GetRolByName(string roleName);
+        int RoleInsert(SisRol rol);
+        int RoleUpdate(SisRol rol);
+        bool RoleExists(int id);
+        bool RoleDelete(int id);
+    }
+}

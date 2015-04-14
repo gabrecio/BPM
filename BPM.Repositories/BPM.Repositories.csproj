@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC25DD07-D1FC-4377-A06F-0AC3B72F03A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BPM.Repositories</RootNamespace>
+    <AssemblyName>BPM.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BaseEFRepository.cs" />
+    <Compile Include="Common\GenericRepository.cs" />
+    <Compile Include="Common\Hasher.cs" />
+    <Compile Include="Common\IGenericRepository.cs" />
+    <Compile Include="Common\IHasher.cs" />
+    <Compile Include="Common\IRepository.cs" />
+    <Compile Include="Common\IUnitOfWork.cs" />
+    <Compile Include="Common\UnitOfWork.cs" />
+    <Compile Include="DataContext\ModelFrwk.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFrwk.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\ModelFrwk.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFrwk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\ModelFrwk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFrwk.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\SisListaPermiso.cs">
+      <DependentUpon>ModelFrwk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\SisMenu.cs">
+      <DependentUpon>ModelFrwk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\SisOperacione.cs">
+      <DependentUpon>ModelFrwk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\SisRol.cs">
+      <DependentUpon>ModelFrwk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\SisUsuario.cs">
+      <DependentUpon>ModelFrwk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\sysdiagram.cs">
+      <DependentUpon>ModelFrwk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Implementations\AuthRepository.cs" />
+    <Compile Include="Implementations\RolRepository.cs" />
+    <Compile Include="Implementations\UsuarioRepository.cs" />
+    <Compile Include="Interfaces\IAuthRepository.cs" />
+    <Compile Include="Interfaces\IRolRepository.cs" />
+    <Compile Include="Interfaces\IUsuarioRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BPM.Commons\BPM.Commons.csproj">
+      <Project>{eba22bb9-1a34-4c6d-9923-1109bd5e2317}</Project>
+      <Name>BPM.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BPM.ViewModels\BPM.ViewModels.csproj">
+      <Project>{6951943b-ba25-4211-96cb-f5de3ae9b8af}</Project>
+      <Name>BPM.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DataContext\ModelFrwk.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelFrwk.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.config" />
+    <None Include="DataContext\ModelFrwk.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelFrwk.edmx</DependentUpon>
+      <LastGenOutput>ModelFrwk.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DataContext\ModelFrwk.edmx.diagram">
+      <DependentUpon>ModelFrwk.edmx</DependentUpon>
+    </None>
+    <None Include="DataContext\ModelFrwk.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelFrwk.edmx</DependentUpon>
+      <LastGenOutput>ModelFrwk.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

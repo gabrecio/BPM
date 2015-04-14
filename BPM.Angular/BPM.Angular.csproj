@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6457D9BE-C086-411B-9CFF-BA3DF2B2C39C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BPM.Angular</RootNamespace>
+    <AssemblyName>BPM.Angular</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="dist\app\app.js" />
+    <Content Include="dist\app\config.js" />
+    <Content Include="dist\app\controllers\issues.js" />
+    <Content Include="dist\app\controllers\login.js" />
+    <Content Include="dist\app\controllers\nav.js" />
+    <Content Include="dist\app\controllers\projects.js" />
+    <Content Include="dist\app\controllers\roles.js" />
+    <Content Include="dist\app\controllers\rolesNew.js" />
+    <Content Include="dist\app\controllers\users.js" />
+    <Content Include="dist\app\controllers\usersNew - Copy.js" />
+    <Content Include="dist\app\controllers\usersNew.js" />
+    <Content Include="dist\app\directives\alert.js" />
+    <Content Include="dist\app\directives\auth.js" />
+    <Content Include="dist\app\directives\confirmation.js" />
+    <Content Include="dist\app\directives\draganddrop.js" />
+    <Content Include="dist\app\directives\fileSelectCleanInput.js" />
+    <Content Include="dist\app\directives\focus.js" />
+    <Content Include="dist\app\directives\hasPermission.js" />
+    <Content Include="dist\app\directives\parseUrl.js" />
+    <Content Include="dist\app\directives\version.js" />
+    <Content Include="dist\app\filters\bytes.js" />
+    <Content Include="dist\app\filters\comment.js" />
+    <Content Include="dist\app\modules\security.js" />
+    <Content Include="dist\app\services\alert.js" />
+    <Content Include="dist\app\services\aliens.js" />
+    <Content Include="dist\app\services\api.js" />
+    <Content Include="dist\app\services\interceptors.js" />
+    <Content Include="dist\app\services\login.js" />
+    <Content Include="dist\app\services\notification.js" />
+    <Content Include="dist\app\services\permissions.js" />
+    <Content Include="dist\components\angular-animate\angular-animate.js" />
+    <Content Include="dist\components\angular-animate\angular-animate.min.js" />
+    <Content Include="dist\components\angular-bootstrap\ui-bootstrap-tpls.js" />
+    <Content Include="dist\components\angular-bootstrap\ui-bootstrap-tpls.min.js" />
+    <Content Include="dist\components\angular-bootstrap\ui-bootstrap.js" />
+    <Content Include="dist\components\angular-bootstrap\ui-bootstrap.min.js" />
+    <Content Include="dist\components\angular-file-upload\.gitignore" />
+    <Content Include="dist\components\angular-file-upload\angular-file-upload.js" />
+    <Content Include="dist\components\angular-file-upload\angular-file-upload.min.js" />
+    <Content Include="dist\components\angular-file-upload\license.txt" />
+    <Content Include="dist\components\angular-file-upload\src\scripts\app.js" />
+    <Content Include="dist\components\angular-file-upload\src\scripts\directives\ngFileDrop.js" />
+    <Content Include="dist\components\angular-file-upload\src\scripts\directives\ngFileOver.js" />
+    <Content Include="dist\components\angular-file-upload\src\scripts\directives\ngFileSelect.js" />
+    <Content Include="dist\components\angular-file-upload\src\scripts\intro.js" />
+    <Content Include="dist\components\angular-file-upload\src\scripts\outro.js" />
+    <Content Include="dist\components\angular-file-upload\src\scripts\services\%24fileUploader.js" />
+    <Content Include="dist\components\angular-loading-bar\build\loading-bar.css" />
+    <Content Include="dist\components\angular-loading-bar\build\loading-bar.js" />
+    <Content Include="dist\components\angular-loading-bar\build\loading-bar.min.css" />
+    <Content Include="dist\components\angular-loading-bar\build\loading-bar.min.js" />
+    <Content Include="dist\components\angular-loading-bar\Gruntfile.js" />
+    <Content Include="dist\components\angular-loading-bar\src\loading-bar.css" />
+    <Content Include="dist\components\angular-loading-bar\src\loading-bar.js" />
+    <Content Include="dist\components\angular-local-storage\angular-local-storage.js" />
+    <Content Include="dist\components\angular-local-storage\angular-local-storage.min.js" />
+    <Content Include="dist\components\angular-local-storage\demo\demo-app.js" />
+    <Content Include="dist\components\angular-local-storage\demo\demo-style.css" />
+    <Content Include="dist\components\angular-local-storage\demo\demo.html" />
+    <Content Include="dist\components\angular-local-storage\Gruntfile.js" />
+    <Content Include="dist\components\angular-mocks\angular-mocks.js" />
+    <Content Include="dist\components\angular-multi-select\angular-multi-select.css" />
+    <Content Include="dist\components\angular-multi-select\angular-multi-select.js" />
+    <Content Include="dist\components\angular-multi-select\LICENSE.txt" />
+    <Content Include="dist\components\angular-resource\angular-resource.js" />
+    <Content Include="dist\components\angular-resource\angular-resource.min.js" />
+    <Content Include="dist\components\angular-route\angular-route.js" />
+    <Content Include="dist\components\angular-route\angular-route.min.js" />
+    <Content Include="dist\components\angular-ui-select\dist\select.css" />
+    <Content Include="dist\components\angular-ui-select\dist\select.js" />
+    <Content Include="dist\components\angular-ui-select\examples\bootstrap.html" />
+    <Content Include="dist\components\angular-ui-select\examples\demo.html" />
+    <Content Include="dist\components\angular-ui-select\examples\demo.js" />
+    <Content Include="dist\components\angular-ui-select\examples\select2-bootstrap3.html" />
+    <Content Include="dist\components\angular-ui-select\examples\selectize-bootstrap3.html" />
+    <Content Include="dist\components\angular-ui-select\Gruntfile.js" />
+    <Content Include="dist\components\angular-ui-select\karma.conf.js" />
+    <Content Include="dist\components\angular\angular-csp.css" />
+    <Content Include="dist\components\angular\angular.js" />
+    <Content Include="dist\components\angular\angular.min.js" />
+    <Content Include="dist\components\autofill-event\index.js" />
+    <Content Include="dist\components\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="dist\components\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="dist\components\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="dist\components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="dist\components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="dist\components\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="dist\components\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="dist\components\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="dist\components\bootstrap\Gruntfile.js" />
+    <Content Include="dist\components\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="dist\components\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="dist\components\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="dist\components\bootstrap\js\affix.js" />
+    <Content Include="dist\components\bootstrap\js\alert.js" />
+    <Content Include="dist\components\bootstrap\js\button.js" />
+    <Content Include="dist\components\bootstrap\js\carousel.js" />
+    <Content Include="dist\components\bootstrap\js\collapse.js" />
+    <Content Include="dist\components\bootstrap\js\dropdown.js" />
+    <Content Include="dist\components\bootstrap\js\modal.js" />
+    <Content Include="dist\components\bootstrap\js\popover.js" />
+    <Content Include="dist\components\bootstrap\js\scrollspy.js" />
+    <Content Include="dist\components\bootstrap\js\tab.js" />
+    <Content Include="dist\components\bootstrap\js\tooltip.js" />
+    <Content Include="dist\components\bootstrap\js\transition.js" />
+    <Content Include="dist\components\es5-shim\es5-sham.js" />
+    <Content Include="dist\components\es5-shim\es5-sham.min.js" />
+    <Content Include="dist\components\es5-shim\es5-shim.js" />
+    <Content Include="dist\components\es5-shim\es5-shim.min.js" />
+    <Content Include="dist\components\EventSource\index.js" />
+    <Content Include="dist\components\fontawesome\.gitignore" />
+    <Content Include="dist\components\fontawesome\css\font-awesome.css" />
+    <Content Include="dist\components\fontawesome\css\font-awesome.min.css" />
+    <Content Include="dist\components\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="dist\components\html5shiv\dist\html5shiv-printshiv.js" />
+    <Content Include="dist\components\html5shiv\dist\html5shiv-printshiv.min.js" />
+    <Content Include="dist\components\html5shiv\dist\html5shiv.js" />
+    <Content Include="dist\components\html5shiv\dist\html5shiv.min.js" />
+    <Content Include="dist\components\html5shiv\Gruntfile.js" />
+    <Content Include="dist\components\jquery\dist\jquery.js" />
+    <Content Include="dist\components\jquery\dist\jquery.min.js" />
+    <Content Include="dist\components\jquery\MIT-LICENSE.txt" />
+    <Content Include="dist\components\jquery\src\ajax.js" />
+    <Content Include="dist\components\jquery\src\ajax\jsonp.js" />
+    <Content Include="dist\components\jquery\src\ajax\load.js" />
+    <Content Include="dist\components\jquery\src\ajax\parseJSON.js" />
+    <Content Include="dist\components\jquery\src\ajax\parseXML.js" />
+    <Content Include="dist\components\jquery\src\ajax\script.js" />
+    <Content Include="dist\components\jquery\src\ajax\var\nonce.js" />
+    <Content Include="dist\components\jquery\src\ajax\var\rquery.js" />
+    <Content Include="dist\components\jquery\src\ajax\xhr.js" />
+    <Content Include="dist\components\jquery\src\attributes.js" />
+    <Content Include="dist\components\jquery\src\attributes\attr.js" />
+    <Content Include="dist\components\jquery\src\attributes\classes.js" />
+    <Content Include="dist\components\jquery\src\attributes\prop.js" />
+    <Content Include="dist\components\jquery\src\attributes\support.js" />
+    <Content Include="dist\components\jquery\src\attributes\val.js" />
+    <Content Include="dist\components\jquery\src\callbacks.js" />
+    <Content Include="dist\components\jquery\src\core.js" />
+    <Content Include="dist\components\jquery\src\core\access.js" />
+    <Content Include="dist\components\jquery\src\core\init.js" />
+    <Content Include="dist\components\jquery\src\core\parseHTML.js" />
+    <Content Include="dist\components\jquery\src\core\ready.js" />
+    <Content Include="dist\components\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="dist\components\jquery\src\css.js" />
+    <Content Include="dist\components\jquery\src\css\addGetHookIf.js" />
+    <Content Include="dist\components\jquery\src\css\curCSS.js" />
+    <Content Include="dist\components\jquery\src\css\defaultDisplay.js" />
+    <Content Include="dist\components\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="dist\components\jquery\src\css\support.js" />
+    <Content Include="dist\components\jquery\src\css\swap.js" />
+    <Content Include="dist\components\jquery\src\css\var\cssExpand.js" />
+    <Content Include="dist\components\jquery\src\css\var\isHidden.js" />
+    <Content Include="dist\components\jquery\src\css\var\rmargin.js" />
+    <Content Include="dist\components\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="dist\components\jquery\src\data.js" />
+    <Content Include="dist\components\jquery\src\data\accepts.js" />
+    <Content Include="dist\components\jquery\src\data\support.js" />
+    <Content Include="dist\components\jquery\src\deferred.js" />
+    <Content Include="dist\components\jquery\src\deprecated.js" />
+    <Content Include="dist\components\jquery\src\dimensions.js" />
+    <Content Include="dist\components\jquery\src\effects.js" />
+    <Content Include="dist\components\jquery\src\effects\animatedSelector.js" />
+    <Content Include="dist\components\jquery\src\effects\support.js" />
+    <Content Include="dist\components\jquery\src\effects\Tween.js" />
+    <Content Include="dist\components\jquery\src\event.js" />
+    <Content Include="dist\components\jquery\src\event\alias.js" />
+    <Content Include="dist\components\jquery\src\event\support.js" />
+    <Content Include="dist\components\jquery\src\exports\amd.js" />
+    <Content Include="dist\components\jquery\src\exports\global.js" />
+    <Content Include="dist\components\jquery\src\intro.js" />
+    <Content Include="dist\components\jquery\src\jquery.js" />
+    <Content Include="dist\components\jquery\src\manipulation.js" />
+    <Content Include="dist\components\jquery\src\manipulation\support.js" />
+    <Content Include="dist\components\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="dist\components\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="dist\components\jquery\src\offset.js" />
+    <Content Include="dist\components\jquery\src\outro.js" />
+    <Content Include="dist\components\jquery\src\queue.js" />
+    <Content Include="dist\components\jquery\src\queue\delay.js" />
+    <Content Include="dist\components\jquery\src\selector-sizzle.js" />
+    <Content Include="dist\components\jquery\src\selector.js" />
+    <Content Include="dist\components\jquery\src\serialize.js" />
+    <Content Include="dist\components\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="dist\components\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="dist\components\jquery\src\support.js" />
+    <Content Include="dist\components\jquery\src\traversing.js" />
+    <Content Include="dist\components\jquery\src\traversing\findFilter.js" />
+    <Content Include="dist\components\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="dist\components\jquery\src\var\class2type.js" />
+    <Content Include="dist\components\jquery\src\var\concat.js" />
+    <Content Include="dist\components\jquery\src\var\deletedIds.js" />
+    <Content Include="dist\components\jquery\src\var\hasOwn.js" />
+    <Content Include="dist\components\jquery\src\var\indexOf.js" />
+    <Content Include="dist\components\jquery\src\var\pnum.js" />
+    <Content Include="dist\components\jquery\src\var\push.js" />
+    <Content Include="dist\components\jquery\src\var\rnotwhite.js" />
+    <Content Include="dist\components\jquery\src\var\slice.js" />
+    <Content Include="dist\components\jquery\src\var\strundefined.js" />
+    <Content Include="dist\components\jquery\src\var\support.js" />
+    <Content Include="dist\components\jquery\src\var\toString.js" />
+    <Content Include="dist\components\jquery\src\wrap.js" />
+    <Content Include="dist\components\lodash\dist\lodash.compat.js" />
+    <Content Include="dist\components\lodash\dist\lodash.compat.min.js" />
+    <Content Include="dist\components\lodash\dist\lodash.js" />
+    <Content Include="dist\components\lodash\dist\lodash.min.js" />
+    <Content Include="dist\components\lodash\dist\lodash.underscore.js" />
+    <Content Include="dist\components\lodash\dist\lodash.underscore.min.js" />
+    <Content Include="dist\components\lodash\LICENSE.txt" />
+    <Content Include="dist\components\media-match\.gitignore" />
+    <Content Include="dist\components\media-match\LICENSE.txt" />
+    <Content Include="dist\components\media-match\media.match.js" />
+    <Content Include="dist\components\media-match\media.match.min.js" />
+    <Content Include="dist\components\media-match\test.html" />
+    <Content Include="dist\components\ng-idle\angular-idle.js" />
+    <Content Include="dist\components\ng-idle\angular-idle.min.js" />
+    <Content Include="dist\components\ng-idle\gruntfile.js" />
+    <Content Include="dist\components\ng-idle\karma.conf.js" />
+    <Content Include="dist\components\ng-idle\src\angular-idle.js" />
+    <Content Include="dist\components\ng-idle\src\angular-idle.spec.js" />
+    <Content Include="dist\components\respond\cross-domain\example.html" />
+    <Content Include="dist\components\respond\cross-domain\respond-proxy.html" />
+    <Content Include="dist\components\respond\cross-domain\respond.proxy.gif" />
+    <Content Include="dist\components\respond\cross-domain\respond.proxy.js" />
+    <Content Include="dist\components\respond\dest\respond.matchmedia.addListener.min.js" />
+    <Content Include="dist\components\respond\dest\respond.matchmedia.addListener.src.js" />
+    <Content Include="dist\components\respond\dest\respond.min.js" />
+    <Content Include="dist\components\respond\dest\respond.src.js" />
+    <Content Include="dist\components\respond\Gruntfile.js" />
+    <Content Include="dist\components\respond\src\matchmedia.addListener.js" />
+    <Content Include="dist\components\respond\src\matchmedia.polyfill.js" />
+    <Content Include="dist\components\respond\src\respond.js" />
+    <Content Include="dist\css\app.css" />
+    <Content Include="dist\index.html" />
+    <Content Include="dist\views\about.html" />
+    <Content Include="dist\views\alerts.html" />
+    <Content Include="dist\views\issues.html" />
+    <Content Include="dist\views\login.html" />
+    <Content Include="dist\views\projects.html" />
+    <Content Include="dist\views\roles.html" />
+    <Content Include="dist\views\rolesNew.html" />
+    <Content Include="dist\views\users.html" />
+    <Content Include="dist\views\usersNew.html" />
+    <Content Include="gulpfile.js" />
+    <Content Include="karma.conf.js" />
+    <Content Include="README.md" />
+    <Content Include="Procfile" />
+    <Content Include="package.json" />
+    <Content Include="bower.json" />
+    <Content Include=".npmrc" />
+    <Content Include=".jshintrc" />
+    <Content Include=".bowerrc" />
+    <Content Include="src\app\config.json" />
+    <Content Include="src\styls\app.styl" />
+    <Content Include="dist\components\angular-animate\.bower.json" />
+    <Content Include="dist\components\angular-animate\angular-animate.min.js.map" />
+    <Content Include="dist\components\angular-animate\bower.json" />
+    <Content Include="dist\components\angular-animate\README.md" />
+    <Content Include="dist\components\angular-bootstrap\.bower.json" />
+    <Content Include="dist\components\angular-bootstrap\bower.json" />
+    <Content Include="dist\components\angular-file-upload\.bower.json" />
+    <Content Include="dist\components\angular-file-upload\.jshintrc" />
+    <Content Include="dist\components\angular-file-upload\angular-file-upload.min.map" />
+    <Content Include="dist\components\angular-file-upload\bower.json" />
+    <Content Include="dist\components\angular-file-upload\Gruntfile.coffee" />
+    <Content Include="dist\components\angular-file-upload\package.json" />
+    <Content Include="dist\components\angular-file-upload\README.md" />
+    <Content Include="dist\components\angular-loading-bar\.bower.json" />
+    <Content Include="dist\components\angular-loading-bar\bower.json" />
+    <Content Include="dist\components\angular-loading-bar\CHANGELOG.md" />
+    <Content Include="dist\components\angular-loading-bar\LICENSE" />
+    <Content Include="dist\components\angular-loading-bar\package.json" />
+    <Content Include="dist\components\angular-loading-bar\README.md" />
+    <Content Include="dist\components\angular-local-storage\.bower.json" />
+    <Content Include="dist\components\angular-local-storage\bower.json" />
+    <Content Include="dist\components\angular-local-storage\LICENSE" />
+    <Content Include="dist\components\angular-local-storage\package.json" />
+    <Content Include="dist\components\angular-local-storage\README.md" />
+    <Content Include="dist\components\angular-mocks\.bower.json" />
+    <Content Include="dist\components\angular-mocks\bower.json" />
+    <Content Include="dist\components\angular-mocks\README.md" />
+    <Content Include="dist\components\angular-multi-select\.bower.json" />
+    <Content Include="dist\components\angular-multi-select\bower.json" />
+    <Content Include="dist\components\angular-multi-select\CHANGELOG.md" />
+    <Content Include="dist\components\angular-resource\.bower.json" />
+    <Content Include="dist\components\angular-resource\angular-resource.min.js.map" />
+    <Content Include="dist\components\angular-resource\bower.json" />
+    <Content Include="dist\components\angular-resource\README.md" />
+    <Content Include="dist\components\angular-route\.bower.json" />
+    <Content Include="dist\components\angular-route\angular-route.min.js.map" />
+    <Content Include="dist\components\angular-route\bower.json" />
+    <Content Include="dist\components\angular-route\README.md" />
+    <Content Include="dist\components\angular-ui-select\.bower.json" />
+    <Content Include="dist\components\angular-ui-select\bower.json" />
+    <Content Include="dist\components\angular-ui-select\LICENSE" />
+    <Content Include="dist\components\angular-ui-select\package.json" />
+    <Content Include="dist\components\angular-ui-select\README.md" />
+    <Content Include="dist\components\angular\.bower.json" />
+    <Content Include="dist\components\angular\angular.min.js.gzip" />
+    <Content Include="dist\components\angular\angular.min.js.map" />
+    <Content Include="dist\components\angular\bower.json" />
+    <Content Include="dist\components\angular\README.md" />
+    <Content Include="dist\components\autofill-event\.bower.json" />
+    <Content Include="dist\components\bootstrap\.bower.json" />
+    <Content Include="dist\components\bootstrap\bower.json" />
+    <Content Include="dist\components\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="dist\components\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="dist\components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="dist\components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="dist\components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="dist\components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="dist\components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="dist\components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="dist\components\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="dist\components\bootstrap\less\alerts.less" />
+    <Content Include="dist\components\bootstrap\less\badges.less" />
+    <Content Include="dist\components\bootstrap\less\bootstrap.less" />
+    <Content Include="dist\components\bootstrap\less\breadcrumbs.less" />
+    <Content Include="dist\components\bootstrap\less\button-groups.less" />
+    <Content Include="dist\components\bootstrap\less\buttons.less" />
+    <Content Include="dist\components\bootstrap\less\carousel.less" />
+    <Content Include="dist\components\bootstrap\less\close.less" />
+    <Content Include="dist\components\bootstrap\less\code.less" />
+    <Content Include="dist\components\bootstrap\less\component-animations.less" />
+    <Content Include="dist\components\bootstrap\less\dropdowns.less" />
+    <Content Include="dist\components\bootstrap\less\forms.less" />
+    <Content Include="dist\components\bootstrap\less\glyphicons.less" />
+    <Content Include="dist\components\bootstrap\less\grid.less" />
+    <Content Include="dist\components\bootstrap\less\input-groups.less" />
+    <Content Include="dist\components\bootstrap\less\jumbotron.less" />
+    <Content Include="dist\components\bootstrap\less\labels.less" />
+    <Content Include="dist\components\bootstrap\less\list-group.less" />
+    <Content Include="dist\components\bootstrap\less\media.less" />
+    <Content Include="dist\components\bootstrap\less\mixins.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\alerts.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\buttons.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\center-block.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\forms.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\gradients.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\grid.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\image.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\labels.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\list-group.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\opacity.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\pagination.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\panels.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\resize.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\size.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\table-row.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="dist\components\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="dist\components\bootstrap\less\modals.less" />
+    <Content Include="dist\components\bootstrap\less\navbar.less" />
+    <Content Include="dist\components\bootstrap\less\navs.less" />
+    <Content Include="dist\components\bootstrap\less\normalize.less" />
+    <Content Include="dist\components\bootstrap\less\pager.less" />
+    <Content Include="dist\components\bootstrap\less\pagination.less" />
+    <Content Include="dist\components\bootstrap\less\panels.less" />
+    <Content Include="dist\components\bootstrap\less\popovers.less" />
+    <Content Include="dist\components\bootstrap\less\print.less" />
+    <Content Include="dist\components\bootstrap\less\progress-bars.less" />
+    <Content Include="dist\components\bootstrap\less\responsive-embed.less" />
+    <Content Include="dist\components\bootstrap\less\responsive-utilities.less" />
+    <Content Include="dist\components\bootstrap\less\scaffolding.less" />
+    <Content Include="dist\components\bootstrap\less\tables.less" />
+    <Content Include="dist\components\bootstrap\less\theme.less" />
+    <Content Include="dist\components\bootstrap\less\thumbnails.less" />
+    <Content Include="dist\components\bootstrap\less\tooltip.less" />
+    <Content Include="dist\components\bootstrap\less\type.less" />
+    <Content Include="dist\components\bootstrap\less\utilities.less" />
+    <Content Include="dist\components\bootstrap\less\variables.less" />
+    <Content Include="dist\components\bootstrap\less\wells.less" />
+    <Content Include="dist\components\bootstrap\LICENSE" />
+    <Content Include="dist\components\bootstrap\package.json" />
+    <Content Include="dist\components\bootstrap\README.md" />
+    <Content Include="dist\components\es5-shim\.bower.json" />
+    <Content Include="dist\components\es5-shim\bower.json" />
+    <Content Include="dist\components\es5-shim\CHANGES" />
+    <Content Include="dist\components\es5-shim\component.json" />
+    <Content Include="dist\components\es5-shim\CONTRIBUTORS.md" />
+    <Content Include="dist\components\es5-shim\es5-sham.map" />
+    <Content Include="dist\components\es5-shim\es5-shim.map" />
+    <Content Include="dist\components\es5-shim\LICENSE" />
+    <Content Include="dist\components\es5-shim\package.json" />
+    <Content Include="dist\components\es5-shim\README.md" />
+    <Content Include="dist\components\es5-shim\shims.json" />
+    <Content Include="dist\components\EventSource\.bower.json" />
+    <Content Include="dist\components\fontawesome\.bower.json" />
+    <Content Include="dist\components\fontawesome\.npmignore" />
+    <Content Include="dist\components\fontawesome\bower.json" />
+    <Content Include="dist\components\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="dist\components\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="dist\components\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="dist\components\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="dist\components\fontawesome\less\bordered-pulled.less" />
+    <Content Include="dist\components\fontawesome\less\core.less" />
+    <Content Include="dist\components\fontawesome\less\extras.less" />
+    <Content Include="dist\components\fontawesome\less\fixed-width.less" />
+    <Content Include="dist\components\fontawesome\less\font-awesome.less" />
+    <Content Include="dist\components\fontawesome\less\icons.less" />
+    <Content Include="dist\components\fontawesome\less\larger.less" />
+    <Content Include="dist\components\fontawesome\less\list.less" />
+    <Content Include="dist\components\fontawesome\less\mixins.less" />
+    <Content Include="dist\components\fontawesome\less\path.less" />
+    <Content Include="dist\components\fontawesome\less\rotated-flipped.less" />
+    <Content Include="dist\components\fontawesome\less\spinning.less" />
+    <Content Include="dist\components\fontawesome\less\stacked.less" />
+    <Content Include="dist\components\fontawesome\less\variables.less" />
+    <Content Include="dist\components\fontawesome\scss\font-awesome.scss" />
+    <Content Include="dist\components\fontawesome\scss\_bordered-pulled.scss" />
+    <Content Include="dist\components\fontawesome\scss\_core.scss" />
+    <Content Include="dist\components\fontawesome\scss\_extras.scss" />
+    <Content Include="dist\components\fontawesome\scss\_fixed-width.scss" />
+    <Content Include="dist\components\fontawesome\scss\_icons.scss" />
+    <Content Include="dist\components\fontawesome\scss\_larger.scss" />
+    <Content Include="dist\components\fontawesome\scss\_list.scss" />
+    <Content Include="dist\components\fontawesome\scss\_mixins.scss" />
+    <Content Include="dist\components\fontawesome\scss\_path.scss" />
+    <Content Include="dist\components\fontawesome\scss\_rotated-flipped.scss" />
+    <Content Include="dist\components\fontawesome\scss\_spinning.scss" />
+    <Content Include="dist\components\fontawesome\scss\_stacked.scss" />
+    <Content Include="dist\components\fontawesome\scss\_variables.scss" />
+    <Content Include="dist\components\html5shiv\.bower.json" />
+    <Content Include="dist\components\html5shiv\bower.json" />
+    <Content Include="dist\components\html5shiv\package.json" />
+    <Content Include="dist\components\html5shiv\readme.md" />
+    <Content Include="dist\components\jquery\.bower.json" />
+    <Content Include="dist\components\jquery\bower.json" />
+    <Content Include="dist\components\jquery\dist\jquery.min.map" />
+    <Content Include="dist\components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="dist\components\lodash\.bower.json" />
+    <Content Include="dist\components\lodash\bower.json" />
+    <Content Include="dist\components\media-match\.bower.json" />
+    <Content Include="dist\components\media-match\README.md" />
+    <Content Include="dist\components\ng-idle\.bower.json" />
+    <Content Include="dist\components\ng-idle\angular-idle.map" />
+    <Content Include="dist\components\ng-idle\bower.json" />
+    <Content Include="dist\components\ng-idle\CHANGELOG.md" />
+    <Content Include="dist\components\ng-idle\LICENSE" />
+    <Content Include="dist\components\ng-idle\package.json" />
+    <Content Include="dist\components\ng-idle\README.md" />
+    <Content Include="dist\components\respond\.bower.json" />
+    <Content Include="dist\components\respond\bower.json" />
+    <Content Include="dist\components\respond\LICENSE-MIT" />
+    <Content Include="dist\components\respond\package.json" />
+    <Content Include="dist\components\respond\README.md" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="server.js" />
+    <Content Include="src\app\app.js" />
+    <Content Include="src\app\controllers\login.js" />
+    <Content Include="src\app\controllers\nav.js" />
+    <Content Include="src\app\controllers\roles.js" />
+    <Content Include="src\app\controllers\rolesNew.js" />
+    <Content Include="src\app\controllers\users.js" />
+    <Content Include="src\app\controllers\usersNew.js" />
+    <Content Include="src\app\directives\alert.js" />
+    <Content Include="src\app\directives\auth.js" />
+    <Content Include="src\app\directives\confirmation.js" />
+    <Content Include="src\app\directives\draganddrop.js" />
+    <Content Include="src\app\directives\fileSelectCleanInput.js" />
+    <Content Include="src\app\directives\focus.js" />
+    <Content Include="src\app\directives\hasPermission.js" />
+    <Content Include="src\app\directives\parseUrl.js" />
+    <Content Include="src\app\directives\version.js" />
+    <Content Include="src\app\filters\bytes.js" />
+    <Content Include="src\app\filters\comment.js" />
+    <Content Include="src\app\modules\security.js" />
+    <Content Include="src\app\services\alert.js" />
+    <Content Include="src\app\services\api.js" />
+    <Content Include="src\app\services\interceptors.js" />
+    <Content Include="src\app\services\login.js" />
+    <Content Include="src\app\services\notification.js" />
+    <Content Include="src\app\services\permissions.js" />
+    <Content Include="src\index.html" />
+    <Content Include="src\styls\app.css" />
+    <Content Include="src\views\about.html" />
+    <Content Include="src\views\alerts.html" />
+    <Content Include="src\views\login.html" />
+    <Content Include="src\views\roles.html" />
+    <Content Include="src\views\rolesNew.html" />
+    <Content Include="src\views\users.html" />
+    <Content Include="src\views\usersNew.html" />
+    <Content Include="test\spec\controllers\issues.js" />
+    <Content Include="test\spec\controllers\login.js" />
+    <Content Include="test\spec\controllers\nav.js" />
+    <Content Include="test\spec\controllers\projects.js" />
+    <Content Include="test\spec\controllers\users.js" />
+    <Content Include="test\spec\directives\auth.js" />
+    <Content Include="test\spec\directives\draganddrop.js" />
+    <Content Include="test\spec\directives\version.js" />
+    <Content Include="test\spec\modules\security.js" />
+    <Content Include="test\spec\services\aliens.js" />
+    <Content Include="test\spec\services\interceptors.js" />
+    <Content Include="test\spec\services\login.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="node_modules\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4788</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4788/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
