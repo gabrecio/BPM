@@ -1,0 +1,260 @@
+@import url('http://fonts.googleapis.com/css?family=Exo+2:400,400italic')
+
+google = #D94C31
+twitter = #55ACEE
+facebook = #1F4189
+jira = #205081
+
+[ng-cloak]{
+  display: none;
+}
+
+body
+  background #F9F9F9
+.break-word
+  word-break: break-all;
+a
+  color jira
+  cursor pointer
+
+label
+  font-weight normal
+h5
+  font-weight bold
+  
+.panel-issues-footer
+  color #888
+
+.form-signin
+  max-width 330px
+  padding 15px
+  margin 0 auto
+  margin-top 20px
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox
+  margin-bottom 10px
+  color #777
+
+.form-signin .checkbox
+  font-weight normal
+
+.form-signin .form-control
+  padding-left 10px
+
+.form-signin .form-controlfocus
+  z-index 2
+
+.google
+  border-color darken(google,10%)
+  background google
+  color #FFF
+  &hover
+    background darken(google,10%)
+    border-color darken(google,50%)
+    color #FFF
+
+.twitter
+  border-color darken(twitter,10%)
+  background twitter
+  color #FFF
+  &hover
+    background darken(twitter,25%)
+    border-color darken(twitter,50%)
+    color #FFF
+
+.facebook
+  border-color darken(facebook,10%)
+  background facebook
+  color #FFF
+  &hover
+    background darken(facebook,15%)
+    border-color darken(facebook,50%)
+    color #FFF
+.admin .panel
+  border none
+.admin .nav-tabs
+  background #F9F9F9
+.admin .tab-content
+  border 1px solid #ddd
+  border-top none
+.admin .nav-tabs > li > a
+  color #555
+.admin .nav-tabs > li.active > a
+  color jira
+.admin .list-group
+  margin-top 20px
+.nav, .pagination, .carousel, .panel-title a 
+  cursor pointer
+
+.tab-content
+  padding-top 10px
+th
+  font-weight normal
+th.order
+  cursor pointer  
+th.order10
+  cursor pointer
+  width 10%
+th.summary, td.summary
+  width 85%
+
+.breadcrumb
+  padding 5px 0
+  margin 0
+
+.alertCenter
+  position:fixed
+  z-index: 100 
+  top:50%  
+  left:50%
+  margin:-100px 0 0 -100px
+  width:200px
+  height:50px
+
+.navbar-aliens
+  background-color lighten(jira,15%)
+  border-color darken(jira,20%)
+.navbar-aliens .open > a,
+.navbar-aliens .open > a:hover,
+.navbar-aliens .open > a:focus
+  background-color darken(jira,10%)
+
+.navbar-aliens .dropdown-menu > li > a:hover
+  color #FFF
+  background lighten(jira,30%)
+
+.navbar-brand
+  color #FFF
+  font-family 'Exo 2', sans-serif
+  font-weight 400
+  text-transform uppercase
+
+.navbar-brand i
+  font-style normal
+  font-weight normal
+  
+.navbar-brand:hover
+  color darken(jira,50%)
+.navbar-nav > li.active
+  background darken(jira,20%)
+.navbar-nav > li > a
+  color #FFF
+.navbar-nav > li > a:hover
+  background darken(jira,10%)
+.navbar-aliens .navbar-toggle
+  border-color jira
+  background darken(jira,0%)
+.navbar-aliens .navbar-toggle:hover,
+.navbar-aliens .navbar-toggle:focus
+  background-color darken(jira,20%)
+.navbar-aliens .navbar-toggle .icon-bar
+  background-color #FFF
+
+@media (max-width:768px)
+  .navbar-aliens .open > .dropdown-menu
+    background jira
+  .navbar-aliens .dropdown-menu > li > a
+    color #FFF
+  .navbar-aliens .dropdown-menu > li > a:hover
+    background lighten(jira,20%)
+  .navbar-aliens .dropdown-menu .divider
+    background-color darken(jira,15%)
+  .navbar-aliens .dropdown-menu .dropdown-header
+    color lighten(jira,70%)
+
+.footer 
+  color #CCC
+  text-align center
+.footer p
+  line-height 10px
+  font-size 12px
+
+
+/* Make clicks pass-through */
+#loading-bar,
+#loading-bar-spinner 
+  pointer-events none
+  -webkit-pointer-events none
+  -webkit-transition 350ms linear all
+  -moz-transition 350ms linear all
+  -o-transition 350ms linear all
+  transition 350ms linear all
+
+#loading-bar.ng-enter,
+#loading-bar.ng-leave.ng-leave-active,
+#loading-bar-spinner.ng-enter,
+#loading-bar-spinner.ng-leave.ng-leave-active 
+  opacity 0
+#loading-bar.ng-enter.ng-enter-active,
+#loading-bar.ng-leave,
+#loading-bar-spinner.ng-enter.ng-enter-active,
+#loading-bar-spinner.ng-leave 
+  opacity 1
+#loading-bar .bar 
+  -webkit-transition width 350ms
+  -moz-transition width 350ms
+  -o-transition width 350ms
+  transition width 350ms
+  background lighten(jira,80%)
+  position fixed
+  z-index 2000
+  top 0
+  left 0
+  width 100%
+  height 2px
+
+
+/* Fancy blur effect */
+#loading-bar .peg 
+  display block
+  position absolute
+  right 0px
+  width 100px
+  height 100%
+  box-shadow 0 0 10px lighten(jira,80%), 0 0 5px lighten(jira,80%)
+  opacity 1.0
+
+  -webkit-transform rotate(3deg) translate(0px, -4px)
+  -moz-transform rotate(3deg) translate(0px, -4px)
+  -ms-transform rotate(3deg) translate(0px, -4px)
+  -o-transform rotate(3deg) translate(0px, -4px)
+  transform rotate(3deg) translate(0px, -4px)
+
+[dropzone]
+  min-height 70px
+  border 1px solid darken(#ddd, 10%)
+  border-radius 5px
+  padding 5px
+
+.pagination
+  margin-top:10px !important
+  margin-bottom:5px !important
+
+td img
+  vertical-align: text-top
+
+.fa-required
+  font-size 10px
+  color #D64937
+  margin-left 2px
+  vertical-align super
+
+
+input[type="file"]
+  width: 100%;
+input[type="file"]:before
+  content: '\f0c5  Adjuntar archivo'
+  white-space: nowrap;
+  outline: none;
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, 'FontAwesome';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+input[type="file"]::-webkit-file-upload-button
+  visibility: hidden;

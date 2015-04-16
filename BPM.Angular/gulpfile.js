@@ -74,7 +74,7 @@ gulp.task('config', function() {
     .pipe(ngConstant({
       name: 'myapp.constants',
       constants: {
-        API: 'http://local.bpm.api.com',
+        API: 'http://local.bpm.com/api',
         REVISION: process.env.GIT_REV,
         BUILD: process.env.GIT_BLD
       }

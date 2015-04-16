@@ -1,0 +1,30 @@
+<div ng-controller="LoginCtrl" class="container">
+	<form name="loginForm" class="form-signin">
+		<h4 class="form-signin-heading">
+		<i class="fa fa-sign-in"></i> 
+		Iniciar sesión
+		</h4>
+		<hr/>
+		<div class="form-group">
+		<input type="text" name="email" ng-model="email" ng-required="true" placeholder="Ingrese nombre de usuario" class="form-control"/>
+		</div>
+		<div class="form-group">
+		<input name="password" ng-model="password" ng-required="true" type="password" placeholder="Ingrese su contraseña" class="form-control"/>
+		</div>
+		<div class="form-group">
+		<input ng-show="signupMode" name="confirm" ng-model="confirm" ng-required="signupMode" type="password" placeholder="Confirmar constraseña" class="form-control"/>
+		</div><!--label.checkbox(ng-show="!signupMode")input(type="checkbox", ng-model="rememberMe")
+		| Recordarme-->
+		<p class="btn-toolbar">
+		<button tabindex="-1" ng-show="!signupMode" ng-disabled="loginForm.$invalid" ng-click="login()" class="btn btn-primary btn-block">
+		<i class="fa fa-sign-in">
+		</i>  Iniciar sesión</button>
+		<button tabindex="-1" ng-show="signupMode" ng-disabled="loginForm.$invalid || loginForm.$pristine" ng-click="signup()" class="btn btn-primary">
+		<i class="fa fa-sign-in"></i>  
+		Crear una cuenta
+		</button>
+		<a tabindex="-1" ng-show="signupMode" ng-click="toggleSignup()" class="btn btn-default">Cancelar</a>
+		</p><!--p.text-muted.text-center(ng-show="!signupMode")| O 
+		a(tabindex='-1', ng-click="toggleSignup()",href="#/login") crear una cuenta-->
+	</form>
+</div>

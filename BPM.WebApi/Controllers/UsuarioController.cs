@@ -28,10 +28,12 @@ namespace WebApi.Controllers
         }
       
     
-
-        //[Authorize]       
+        /// <summary>
+        /// Get all active users from db
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]       
         [HttpGet]
-        // GET All Users /api/usuario
         public IEnumerable<UserViewModel> Get()
         {
             log.Info("GET /api/usuario");
@@ -42,9 +44,14 @@ namespace WebApi.Controllers
       
 
         // GET api/usuario/5
-        //[Authorize]
+      
+        [Authorize]
         [HttpGet]
         [ResponseType(typeof(UserViewModel))]
+        /// <summary>
+        /// GET api/usuario/5 by ID.
+        /// </summary>
+        /// <param name="id">The ID of the data.</param>
         public IHttpActionResult Get(int id)
         {
             log.Info("GET api/usuario/" + id);
@@ -69,12 +76,12 @@ namespace WebApi.Controllers
             return userPerm;
         }
 
-       // [Authorize]
+        [Authorize]
         [HttpGet]
         [Route("Find")]
         public HttpResponseMessage find(int itemsPerPage, int page, bool reverse, string search, string sortBy, int totalItems)
         {            
-           // PageInfo dPageInfo = JsonConvert.DeserializeObject<PageInfo>(pagingInfo);
+          
             PageInfo dPageInfo = new PageInfo()
             {
                 page = page,
@@ -87,7 +94,7 @@ namespace WebApi.Controllers
 
             log.Info("GET /api/usuario/Find");
             var userResp = new UsersResponse();
-
+            //esto que continua llevarlo a la capa de services
             List<UserViewModel> userList;
             // filtering
             if ((dPageInfo.search != null && dPageInfo.search.Trim() != String.Empty))

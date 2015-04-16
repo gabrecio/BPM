@@ -1,0 +1,103 @@
+<div class="container-fluid">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 ng-show="UserId == '0'">Nuevo usuario</h4>
+			<h4 ng-show="UserId != '0'">Editar usuario</h4>
+		</div>
+		<div class="panel-body">
+			<form name="user" class="form-horizontal">
+				<div ng-show="err" class="alert alert-danger">{{err}}</div>
+				<div class="form-group row">
+					<div class="col-md-12">
+					<label for="mail" class="control-label">Mail
+						<i class="fa fa-asterisk fa-required"></i>
+					</label>
+					</div>
+					<div class="col-md-4">						
+						<input type="email" name="mail" ng-model="User.mail" ng-required="true" placeholder="Correo electronico" ng-blur="usernameChaged()" ng-disabled="UserId != '0'" focus-me="shouldBeOpen" class="form-control"/>
+						<div ng-show="user.mail.$dirty || user.mail.$error.userExists" class="alert-danger">
+							<i ng-show="user.mail.$error.required">El campo email es requerido.</i>
+							<i ng-show="user.mail.$error.email">No es una dirección de correo válida.</i>						
+							<i ng-show="user.mail.$error.userExists">Ya existe un usuario con ese mail.</i>
+						</div>
+					</div>
+				</div>				
+				<div class="form-group row">
+					<div class="col-md-12">
+					<label for="nombre" class="control-label">Nombre
+						<i class="fa fa-asterisk fa-required"></i>
+					</label>
+					</div>
+					<div class="col-md-4">
+						<input type="text" name="nombre" ng-model="User.nombre" ng-required="true" placeholder="Ingrese nombre" class="form-control"/>
+						<div ng-show="user.nombre.$dirty" class="alert-danger">
+							<i ng-show="user.nombre.$error.required">El campo nombre es requerido.</i>							
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-12">
+					<label for="apellido" class="control-label">Apellido
+						<i class="fa fa-asterisk fa-required"></i>
+					</label>
+					</div>
+					<div class="col-md-4">
+						<input type="text" name="apellido" ng-model="User.apellido" ng-required="true" placeholder="Ingrese apellido" class="form-control"/>
+						<div ng-show="user.apellido.$dirty" class="alert-danger">
+							<i ng-show="user.apellido.$error.required">El campo apellido es requerido.</i>							
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-12">
+					<label for="password" class="control-label">Contraseña
+						<i class="fa fa-asterisk fa-required"></i>
+					</label>
+					</div>
+					<div class="col-md-4">
+						<input type="password" name="password" ng-model="User.password" ng-required="true" placeholder="Ingrese una constraseña" class="form-control"/>
+						<div ng-show="user.password.$dirty" class="alert-danger">
+							<i ng-show="user.password.$error.required">El campo password es requerido.</i>							
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-12">
+					<label for="profile" class="control-label">Rol
+						<i class="fa fa-asterisk fa-required"></i>
+					</label>
+					</div>
+					<div class="col-md-4">
+						<select ng-model="User.profile"  name="profile" ng-options="profile as profile.nombre for profile in profiles track by profile.id" class="form-control"></select>
+						<div ng-show="user.profile.$dirty" class="alert-danger">
+							<i ng-show="user.profile.$error.required">El campo grupo es requerido.</i>
+							<i ng-show="user.profile.$invalid">No es un grupo válido.</i>
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-12">
+					<label for="activo" class="control-label">Activo
+						<i class="fa fa-asterisk fa-required"></i>
+					</label>
+					</div>
+					<div class="col-md-4">
+							<select ng-model="User.Activo" ng-disabled="UserId == '0'" ng-options="activo as activo.name for activo in Estados track by activo.value"  class="form-control"></select>	
+							<div ng-show="user.activo.$dirty" class="alert-danger">
+								<i ng-show="user.activo.$error.required">El campo activo es requerido.</i>
+								<i ng-show="user.activo.$invalid">No es un activo válido.</i>
+							</div>					
+						</div>
+				</div>
+			</form>
+		</div>
+	<div class="panel-footer text-right">
+		<div class="btn-group">
+			<button tabindex="-1" type="button" ng-click="saveUser()" ng-disabled="user.$invalid" class="btn btn-primary">Aceptar</button>
+			<button tabindex="-1" type="button" ng-click="cancel()" class="btn btn-default">Cancelar</button>
+		</div>
+	</div>
+	</div>
+</div>
+<script type="text/ng-template" id="withIcon"><a><img ng-src="{{match.model.iconUrl}}" width="16"/><span bind-html-unsafe="match.label | typeaheadHighlight:query"></span></a>
+</script>

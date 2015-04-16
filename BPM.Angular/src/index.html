@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Client API</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/components/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <!--<link rel="stylesheet" type="text/css" href="/components/angular-multi-select/angular-multi-select.css">-->
+
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA4UlEQVQ4T2NkoBAwUqifge4GiAJdbAnEIHoFEH8l1gXiQMX9QBwBxDA9IEPeEGOAFlDhdiCWA+IeaJilAWlBIP5HyAAFoKJjQCwJ1fgASp+EugZrIIYAJWuAmA+IxYCYGy2m/gL5hkB8GSSO7gJeoNhNJBvR9IK5eUA8GSaBbkAHUKIcmy6oWDWQbkOWRzcgHCgpD8Q7oLbYISleBWSD5FEAvkDkAaoEhb4NVAfI2SDnE20ASGE7EFdAdTQC6QZSDbgE1KAMxJ1A3AXEP0g1wAeo4SIQP0bXCOMTSki49MHFAdyeHRHVuGt2AAAAAElFTkSuQmCC">
+</head>
+<body data-ng-app="myapp">
+	<div data-ng-controller="NavCtrl" role="navigation" class="navbar navbar-aliens navbar-static-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" data-toggle="collapse" data-target=".navbar-collapse" ng-cloak="" class="navbar-toggle">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a tabindex="-1" href="/" class="navbar-brand"><i class="fa-fw fa fa-soundcloud"></i> |-|</a>
+		</div>
+		<div class="collapse navbar-collapse">	
+			<div class="navbar-right">
+				<ul class="nav navbar-nav"  ng-cloak ng-show-auth="Usuario.Consultar-Roles.Consultar" >
+					<li ng-cloak class="dropdown">
+						<a class="dropdown-toggle hidden-xs">
+							<i class="fa-fw fa fa-cogs"></i>
+							<i class="fa-fw fa fa-caret-down"></i>
+						</a>
+						<a class="dropdown-toggle visible-xs">
+							<i class="fa-fw fa fa-cogs">
+						 </i> Administrar<i class="fa-fw fa fa-caret-down"></i>
+						 </a>
+						 <ul class="dropdown-menu">
+							 <li class="dropdown-header hidden-xs">Administrar</li>							
+							 <li ng-cloak ng-show-auth="Usuario.Consultar">
+							 	<a tabindex="-1" href="#/admin/users">
+							 		<i class="fa-fw fa fa-users"></i> Usuarios
+							 	</a>
+							 </li>
+							 <li ng-cloak ng-show-auth="Roles.Consultar">
+							 	<a tabindex="-1" href="#/admin/roles">
+							 		<i class="fa-fw fa fa-users"></i> Roles
+							 	</a>
+							 </li>
+						 </ul>
+					 </li>
+					 <li class="dropdown">
+					 	<a class="dropdown-toggle hidden-xs">
+					 		<i class="fa-fw fa fa-user"></i>
+					 		<i class="fa-fw fa fa-caret-down"></i>
+					 	</a>
+					 	<a class="dropdown-toggle visible-xs">
+					 		<i class="fa-fw fa fa-user"></i> {{username}}
+					 		<i class="fa-fw fa fa-caret-down"></i>
+					 	</a>
+					 	<ul class="dropdown-menu">
+					 		<li class="dropdown-header hidden-xs">{{username}}</li>
+					 		<li>
+					 			<a tabindex="-1" ng-controller="LoginCtrl" ng-click="logout()">
+					 				<i class="fa-fw fa fa-power-off"></i> Cerrar sesión
+					 			</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div data-alerts=""></div>
+	<div data-ng-view>
+	</div>
+	<div class="footer">
+		<p>API Client &mdash; 
+			<version></version>
+		</p>
+		<p>&copy; Zhic S.A.</p>
+	</div>
+<script type="text/javascript" src="/components/EventSource/index.js"></script>
+<script type="text/javascript" src="/components/jquery/dist/jquery.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/components/es5-shim/es5-shim.js"></script>
+<script> window.html5 = { shivMethods: true, elements: 'tab tabset ui-select ui-select-match ui-select-choices' }; </script>
+<script type="text/javascript" src="/components/html5shiv/dist/html5shiv.js"></script>
+<script> html5.shivDocument(document); </script>
+<script type="text/javascript" src="/components/respond/dest/respond.matchmedia.addListener.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/components/autofill-event/index.js"></script>
+<script type="text/javascript" src="/components/lodash/dist/lodash.js"></script>
+<script type="text/javascript" src="/components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="/components/angular/angular.js"></script>
+<script type="text/javascript" src="/components/angular-ui-select/dist/select.js"></script>
+<script type="text/javascript" src="/components/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="/components/angular-local-storage/angular-local-storage.js"></script>
+<script type="text/javascript" src="/components/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="/components/angular-resource/angular-resource.js"></script>
+<script type="text/javascript" src="/components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script type="text/javascript" src="/components/angular-loading-bar/src/loading-bar.js"></script>
+<script type="text/javascript" src="/components/angular-file-upload/angular-file-upload.js"></script>
+<script type="text/javascript" src="/components/ng-idle/angular-idle.min.js"></script>
+<!--<script type="text/javascript" src="/components/angular-multi-select/angular-multi-select.js"></script>-->
+ 
+<script type="text/javascript" src="/app/config.js"></script>
+<script type="text/javascript" src="/app/app.js"></script>
+<script type="text/javascript" src="/app/controllers/nav.js"></script>
+<script type="text/javascript" src="/app/controllers/login.js"></script>
+<script type="text/javascript" src="/app/controllers/users.js"></script>
+<script type="text/javascript" src="/app/controllers/usersNew.js"></script>
+<script type="text/javascript" src="/app/controllers/roles.js"></script>
+<script type="text/javascript" src="/app/controllers/rolesNew.js"></script>
+<script type="text/javascript" src="/app/modules/security.js"></script>
+<script type="text/javascript" src="/app/services/alert.js"></script>
+<script type="text/javascript" src="/app/services/notification.js"></script>
+<script type="text/javascript" src="/app/services/interceptors.js"></script>
+<script type="text/javascript" src="/app/services/login.js"></script>
+<script type="text/javascript" src="/app/services/api.js"></script>
+<script type="text/javascript" src="/app/services/permissions.js"></script>
+<script type="text/javascript" src="/app/directives/auth.js"></script>
+<script type="text/javascript" src="/app/directives/draganddrop.js"></script>
+<script type="text/javascript" src="/app/directives/fileSelectCleanInput.js"></script>
+<script type="text/javascript" src="/app/directives/alert.js"></script>
+<script type="text/javascript" src="/app/directives/confirmation.js"></script>
+<script type="text/javascript" src="/app/directives/focus.js"></script>
+<script type="text/javascript" src="/app/directives/hasPermission.js"></script>
+<script type="text/javascript" src="/app/directives/parseUrl.js"></script>
+<script type="text/javascript" src="/app/filters/bytes.js"></script>
+<script type="text/javascript" src="/app/filters/comment.js"></script>
+</body>

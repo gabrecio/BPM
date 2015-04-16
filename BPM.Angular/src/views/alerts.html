@@ -1,0 +1,3 @@
+<div data-ng-show="alerts.length" class="container-fluid">
+	<alert ng-repeat="alert in alerts" close="closeAlert($index)" type="alert.type">{{alert.msg}}</alert>
+</div>

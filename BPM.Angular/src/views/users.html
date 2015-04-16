@@ -1,0 +1,90 @@
+<div ng-controller="UsersCtrl" class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-7 col-lg-9">
+							<div class="input-group input-group-sm">
+								<input ng-model="searchUsers" type="search" name="" id="" value="" required="required" title="" ng-change="doSearch()" class="form-control"/>
+								<div class="input-group-btn">
+									<button tabindex="-1" type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-5 col-lg-3 text-right">
+							<div  has-permission='Usuario.Agregar' class="btn-group">
+							    <a tabindex="-1" ng-href="#/admin/users/new" class="btn btn-success btn-sm">
+							    	<i class="fa fa-plus"></i>
+							    	<span class="hidden-xs"> Usuario</span>
+							    </a>
+							</div>							
+						</div>
+					</div>
+				</div>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th ng-click="sort('mail')">Mail
+								<i class="fa fa-arrows-v"></i>
+							</th>
+							<th ng-click="sort('Nombre')">Nombre
+								<i class="fa fa-arrows-v"></i>
+							</th>
+							<th ng-click="sort('activo')" class="hidden-xs">Activo 
+								<i class="fa fa-arrows-v"></i>
+							</th>
+							<th ng-click="sort('profile[0].name')" class="order">Grupo 
+								<i class="fa fa-arrows-v"></i>
+							</th>
+							<th ng-click="sort('fechaAlta')" class="order hidden-xs">Alta 
+								<i class="fa fa-arrows-v">              </i>
+							</th>
+						</tr>
+					</thead>
+					<tbody>           
+						<tr ng-repeat="user in users">
+							<td>
+								<a tabindex="-1" href="#/admin/users/edit/{{user.id}}">{{user.mail}}</a>
+							</td>
+							<td>{{user.apellido}} {{user.nombre}}  </td>
+							<td ng-show="{{user.activo}}" class="hidden-xs">Si</td>
+							<td ng-hide="{{user.activo}}" class="hidden-xs">No</td>							
+							<td class="hidden-xs">{{user.roles[0].nombre}} </td>
+							<td class="hidden-xs">{{user.fechaAlta  | date: 'dd/MM/yyyy hh:mm' }} </td>
+							<td class="text-right">
+								<div class="dropdown">
+									<a class="dropdown-toggle btn btn-default btn-xs">
+										<i class="fa fa-cog"></i> 
+										<i class="fa fa-caret-down"></i>
+									</a>
+									<ul class="dropdown-menu pull-right text-left">
+										<li  has-permission='Usuario.Editar'>
+											<a tabindex="-1" href="#/admin/users/edit/{{user.id}}">
+												<i class="fa fa-edit"></i> Editar
+											</a>
+										</li>
+										<li  has-permission='Usuario.Eliminar'>
+											<a tabindex="-1" href="#/admin/users" ng-click="deleteUser(user)" confirmation-needed="¿ Esta seguro que desea eliminar el usuario {{user.nombre}}?">
+												<i class="fa fa-times-circle"></i> Eliminar              
+											</a>
+										</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="panel-footer panel-issues-footer">
+					<div ng-show="pagingInfo.totalItems == 0">
+						<h3>No se encontraron usuarios</h3>
+					</div>
+					<div ng-show="pagingInfo.totalItems &gt; 0" class="text-center">
+						<pagination page="pagingInfo.page" total-items="pagingInfo.totalItems" items-per-page="pagingInfo.itemsPerPage" on-select-page="selectPage(page)" first-text="Primero" previous-text="Anterior" next-text="Siguiente" last-text="Último" max-size="10" rotate="false" boundary-links="true">
+						</pagination>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -62,6 +62,10 @@ namespace BPM.Maps.Implementations
             var viewModel = new UserViewModel();
             viewModel.Id = model.usuarioId;
             viewModel.Nombre = model.Nombre;
+            viewModel.Mail = model.Mail;
+            viewModel.Activo = model.Activo;
+            viewModel.Apellido = model.Apellido;
+            viewModel.FechaAlta = model.FechaAlta;
             return viewModel;
         }
 
@@ -69,7 +73,11 @@ namespace BPM.Maps.Implementations
         {
             var model = new SisUsuario();
             model.usuarioId = viewModel.Id;
-            model.Nombre = viewModel.Nombre ;
+            model.Nombre = viewModel.Nombre;
+            model.Mail = viewModel.Mail;
+            model.Activo = viewModel.Activo;
+            model.Apellido = viewModel.Apellido;
+            model.FechaAlta = viewModel.FechaAlta;
             return model;
         }
 

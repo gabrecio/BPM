@@ -1,0 +1,54 @@
+<div class="container-fluid">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 ng-show="RolId == '0'">Nuevo rol</h4>
+			<h4 ng-show="RolId != '0'">Editar rol</h4>
+		</div>
+		<div class="panel-body">
+			<form name="rol" class="form-horizontal">
+				<div ng-show="err" class="alert alert-danger">{{err}}</div>		
+				<div class="row">
+						<div class="col-xs-12 col-md-6 col-sm-7">
+							Nombre<input type="text" name="nombre" ng-model="Role.Nombre" ng-required="true" ng-blur="nameChaged()" focus-me="shouldBeOpen" ng-disabled="RolId != '0'"  placeholder="Ingrese nombre" class="form-control"/>
+							<div ng-show="rol.nombre.$dirty || rol.nombre.$invalid" class="alert-danger">
+								<i ng-show="rol.nombre.$error.required">El campo nombre es requerido.</i>							
+							</div>
+						</div>												
+					<div class="col-xs-12 col-md-6 col-sm-5">
+						Permisos
+						<div 
+						    data-multi-select 
+						    input-model="rolPermissions"
+						    button-label="icon name"         
+						    item-label="icon name maker" 
+						    tick-property="selected" 
+						    max-labels="3"
+						    default-label="Selecciones sus permisos"
+						    orientation="vertical"
+						    selection-mode="multiple"
+						    group-property="multiSelectGroup">
+						</div>            			
+                    </div>
+				</div>			
+ 				<div class="form-group">
+ 						<div class="col-xs-12 col-md-4 col-sm-5">
+							Activo<select ng-model="Role.Activo"  ng-options="activo as activo.name for activo in Estados track by activo.value"  class="form-control" ng-disabled="RolId == '0'"  ></select>	
+							<div ng-show="rol.activo.$dirty || rol.activo.$invalid" class="alert-danger">
+								<i ng-show="rol.activo.$error.required">El campo activo es requerido.</i>
+								<i ng-show="rol.activo.$invalid">No es un activo válido.</i>
+							</div>					
+						</div>
+				 	
+       			 </div>
+			</form>
+		</div>
+	<div class="panel-footer text-right">
+		<div class="btn-group">
+			<button tabindex="-1" type="button" ng-click="save()" ng-disabled="rol.$invalid" class="btn btn-primary">Aceptar</button>
+			<button tabindex="-1" type="button" ng-click="cancel()" class="btn btn-default">Cancelar</button>
+		</div>
+	</div>
+	</div>
+</div>
+<script type="text/ng-template" id="withIcon"><a><img ng-src="{{match.model.iconUrl}}" width="16"/><span bind-html-unsafe="match.label | typeaheadHighlight:query"></span></a>
+</script>

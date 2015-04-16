@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using WebApi.App_Start;
 
 namespace WebApi
 {
@@ -18,10 +19,7 @@ namespace WebApi
             //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
            
-            //var enableCorsAttribute = new EnableCorsAttribute("http://local.bpm.com", "*", "*");
             
-           //config.EnableCors();
-
 
             config.MapHttpAttributeRoutes();
 
@@ -34,6 +32,10 @@ namespace WebApi
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            //var jsonFormatter = new JsonMediaTypeFormatter();
+            ////optional: set serializer settings here
+            //config.Services.Replace(typeof(IContentNegotiator), new JsonContentNegotiator(jsonFormatter));
         }
     }
 }
