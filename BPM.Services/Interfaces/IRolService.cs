@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using BPM.Repositories.DataContext;
+using BPM.ViewModels;
 
 namespace BPM.Services.Interfaces
 {
@@ -14,5 +15,6 @@ namespace BPM.Services.Interfaces
         int RoleUpdate(SisRol rol);
         bool RoleExists(int id);
         bool RoleDelete(int id);
+        List<Permissions> GetRolePermission(int id);
     }
 }

@@ -50,7 +50,7 @@ angular.module('myapp').controller('rolesNewCtrl', function($scope, $routeParams
 
         }
       });
-    if ($scope.RolId != "0") {
+    if ($scope.RolId !== "0") {
       apiSvc.Rol.getRolById({
           id: $scope.RolId
         },

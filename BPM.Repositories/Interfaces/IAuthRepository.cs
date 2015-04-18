@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace BPM.Repositories.Interfaces
 {
-    public interface IAuthRepository : IGenericRepository<SisUsuario>
+    public interface IAuthRepository :  IRepository<SisUsuario, int> 
     {
        /* Task<IdentityResult> RegisterUser(SisUsuario userModel);
 

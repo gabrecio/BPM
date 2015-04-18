@@ -186,8 +186,8 @@ namespace WebApi.Controllers
           [Route("RolPermission/{rolId}")]
           public List<Permissions> RolPermission(string rolId)
           {
-              var rolPerm = roleMap.GetRolePermission(Convert.ToInt32(rolId));
-              return new List<Permissions>();
+              return roleMap.GetRolePermission(Convert.ToInt32(rolId));
+            
           }
     }
 }

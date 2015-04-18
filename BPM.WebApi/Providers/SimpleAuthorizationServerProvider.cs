@@ -19,12 +19,11 @@ namespace WebApi.Providers
 {
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
-         private IUserMap userMap = null;
 
-      
-         public SimpleAuthorizationServerProvider()
+
+        public SimpleAuthorizationServerProvider()
          {
-             this.userMap = new UserMap();
+            
          }
        
          public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
@@ -54,7 +53,7 @@ namespace WebApi.Providers
           //    context.OwinContext.Response.Headers.Add(CorsConstants.AccessControlAllowCredentials, new[] { "true" });
 
 
-         
+                var userMap = UnityConfig.ResolveDependency<UserMap>();
                 var user = userMap.FindUser(context.UserName, context.Password);
                 if (user == null)
                 {

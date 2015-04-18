@@ -21,7 +21,7 @@ using BPM.ViewModels;
 
 namespace BPM.Repositories.Interfaces
 {
-    public interface IUsuarioRepository : IGenericRepository<SisUsuario>
+    public interface IUsuarioRepository :  IRepository<SisUsuario, int> 
     {
         SisUsuario GetUserByName(string username);
         bool UserExists(int id);

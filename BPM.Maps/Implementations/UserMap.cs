@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BPM.Services.Implementations;
 using Microsoft.AspNet.Identity;
@@ -15,18 +16,18 @@ namespace BPM.Maps.Implementations
     {
         private IUserService userService;
 
-        public UserMap()
-        {
-            this.userService = new UserService(); 
-        }
+        //public UserMap()
+        //{
+        //    this.userService = new UserService(); 
+        //}
         public UserMap(IUserService userService)
         {
             this.userService = userService;
         }
 
-        public List<UserViewModel> GetAllActiveUsers()
+        public List<UserViewModel> GetAllActiveUsers(string query)
         {
-            List<SisUsuario> models = userService.GetActiveUsers();
+            List<SisUsuario> models = userService.GetActiveUsers(query);
             var viewModels = new List<UserViewModel>();
             foreach (SisUsuario model in models)
             {
@@ -66,6 +67,9 @@ namespace BPM.Maps.Implementations
             viewModel.Activo = model.Activo;
             viewModel.Apellido = model.Apellido;
             viewModel.FechaAlta = model.FechaAlta;
+            var rol = new RoleMap();
+            var viewModels = model.SisRols.Select(rolModel => rol.ModelToViewModel(rolModel)).ToList();
+            viewModel.roles = viewModels;
             return viewModel;
         }
 
@@ -78,6 +82,21 @@ namespace BPM.Maps.Implementations
             model.Activo = viewModel.Activo;
             model.Apellido = viewModel.Apellido;
             model.FechaAlta = viewModel.FechaAlta;
+            model.SisRols = new List<SisRol>();
+            if (viewModel.roles != null)
+            {
+                foreach (RoleViewModel rol in viewModel.roles)
+                {
+                    model.SisRols.Add(new SisRol()
+                    {
+                        Nombre = rol.Nombre,
+                        rolId = rol.Id, 
+                        Activo = rol.Activo,
+                        FechaAlta = rol.FechaAlta
+                    });
+                }
+            }
+
             return model;
         }
 

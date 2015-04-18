@@ -11,7 +11,7 @@ namespace BPM.Maps.Interfaces
     {
         List<RoleViewModel> GetAllActiveRoles();
         RoleViewModel GetRoleById(int id);
-        List<string> GetRolePermission(int id);
+        List<Permissions> GetRolePermission(int id);
         RoleViewModel GetRoleByName(string rolename);
         int RoleInsert(RoleViewModel role);
         int RoleUpdate(RoleViewModel role);

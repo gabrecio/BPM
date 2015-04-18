@@ -11,7 +11,7 @@ using BPM.Repositories.Interfaces;
 
 namespace BPM.Repositories.Implementations
 {
-    public class AuthRepository : GenericRepository<SisUsuario>, IAuthRepository
+    public class AuthRepository : BaseEFRepository<SisUsuario, int>, IAuthRepository
     {
         private readonly FrameworkEntities _dbContext;
 

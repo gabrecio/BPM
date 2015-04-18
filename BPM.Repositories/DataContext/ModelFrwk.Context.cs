@@ -12,8 +12,8 @@ namespace BPM.Repositories.DataContext
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class FrameworkEntities : DbContext
+
+    public partial class FrameworkEntities : DbContext, IFrameworkEntities
     {
         public FrameworkEntities()
             : base("name=FrameworkEntities")

@@ -10,7 +10,7 @@ namespace BPM.Maps.Interfaces
 {
     public interface IUserMap
     {
-        List<UserViewModel> GetAllActiveUsers();
+        List<UserViewModel> GetAllActiveUsers(string query);
         UserViewModel GetUserById(int id);
         //List<string> GetUserPermission(int id);
         UserViewModel GetUserByName(string username);

@@ -38,7 +38,7 @@ namespace BPM.DependencyInjection
 
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<FrameworkEntities>();
-          //  container.RegisterType<IFrameworkEntities, FrameworkEntities>(new HierarchicalLifetimeManager());
+            container.RegisterType<IFrameworkEntities, FrameworkEntities>(new HierarchicalLifetimeManager());
             container.RegisterType<IAuthenticationManager>(new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication));
            // container.RegisterType<SisUsuario>(new InjectionConstructor(typeof(FrameworkEntities)));
 

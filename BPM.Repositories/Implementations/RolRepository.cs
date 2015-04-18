@@ -5,10 +5,11 @@ using System.Linq;
 using BPM.Repositories.DataContext;
 using BPM.Repositories.Common;
 using BPM.Repositories.Interfaces;
+using BPM.ViewModels;
 
 namespace BPM.Repositories.Implementations
 {
-    public class RolRepository : GenericRepository<SisRol>, IRolRepository
+    public class RolRepository : BaseEFRepository<SisRol, int>, IRolRepository
     {
         private readonly FrameworkEntities _dbContext;
 
@@ -20,12 +21,11 @@ namespace BPM.Repositories.Implementations
 
         public SisRol GetRolByName(string rolname)
         {
-            using (var db = new FrameworkEntities()) 
-            {
-                return (from u in db.SisRols
+          
+                return (from u in _dbContext.SisRols
                     where u.Nombre == rolname
                     select u).SingleOrDefault();
-            }
+           
         }
 
         public bool RolExists(int id)
@@ -36,39 +36,39 @@ namespace BPM.Repositories.Implementations
         public bool RolHasUsers(int id)
         {
             var rol = _dbContext.SisRols.FirstOrDefault(r => r.rolId.Equals(id));
-            return true; //rol != null && rol .SisUsuarios.Any();
+            return rol != null && rol.SisUsuarios.Any();
         }
 
-        public List<SisListaPermiso> GetRolPermission(int rolId)
+        public List<Permissions> GetRolPermission(int rolId)
         {
-            var rolPermissions = new List<SisListaPermiso>();
-           /* using (var db = new BPMContext())
-            {
+            var rolPermissions = new List<Permissions>();
+          
                 var rolPermission = new List<int>();
-                if (rolId != 0) {
-                   rolPermission=  (from rol in db.SisRoles.FirstOrDefault(i => i.Id == rolId).SisListaPermisoes select rol.lipId).ToList();
+                if (rolId != 0)
+                {
+                    rolPermission = (from rol in _dbContext.SisRols.FirstOrDefault(i => i.rolId == rolId).SisListaPermisoes select rol.lipId).ToList();
                 }
 
-                foreach (var menu in db.SisMenus)
+                foreach (var menu in _dbContext.SisMenus)
                 {
-                    var lista = new List<SisRolPermiso>();
+                    var lista = new List<Permission>();
 
-                    foreach (var ope in (from lp in db.SisMenus.FirstOrDefault(i => i.menuId == menu.menuId).SisListaPermisoes
-                                         join op in db.SisOperaciones on lp.opId equals op.opId
-                                         select new{lpId= lp.lipId, nombre=op.Nombre, imagen=op.Imagen}).ToList())
+                    foreach (var ope in (from lp in _dbContext.SisMenus.FirstOrDefault(i => i.menuId == menu.menuId).SisListaPermisoes
+                                         join op in _dbContext.SisOperaciones on lp.opId equals op.opId
+                                         select new { lpId = lp.lipId, nombre = op.Nombre, imagen = op.Imagen }).ToList())
                     {
-                         var np = new Permission()
-                                       {
-                                           Operacion = ope.nombre,
-                                           Activo = rolPermission.Contains(ope.lpId), 
-                                           Imagen = ope.imagen,
-                                           ListaPermisoId = ope.lpId
-                                       };
+                        var np = new Permission()
+                        {
+                            Operacion = ope.nombre,
+                            Activo = rolPermission.Contains(ope.lpId),
+                            Imagen = ope.imagen,
+                            ListaPermisoId = ope.lpId
+                        };
                         lista.Add(np);
 
                     }
 
-                    var perm = new SisRolPermiso()
+                    var perm = new Permissions()
                     {
                         Menu = menu.Titulo,
                         Imagen = menu.Imagen,
@@ -76,26 +76,25 @@ namespace BPM.Repositories.Implementations
                     };
                     rolPermissions.Add(perm);
                 }
-            }*/
+            
             return rolPermissions;
         }
 
         public int RolInsert(SisRol rol)
         {
 
-           /* using (var entities = new BPMContext()) 
-            {
-                var newRole = SisRol.For(rol);
+       
+              //  var newRole = SisRol.For(rol);
               
-                foreach (var item in rol.Permissions.Where(x=>x.Activo).ToList())
+          /*      foreach (var item in rol.SisListaPermisoes.Where(x=>x. .Activo).ToList())
                 {
-                    newRole.SisListaPermisoes.Add((from r in entities.SisListaPermisoes where r.lipId.Equals(item.ListaPermisoId) select r).FirstOrDefault()); 
+                    rol.SisListaPermisoes.Add((from r in _dbContext.SisListaPermisoes where r.lipId.Equals(item.ListaPermisoId) select r).FirstOrDefault()); 
                 }
-                entities.SisRols.Add(newRole);
-                entities.SaveChanges();
-                return newRole.rolId;
-            }*/
-            return 0;
+                _dbContext.SisRols.Add(rol);
+                _dbContext.SaveChanges();*/
+                return 1;
+          
+        
         }
 
         public int RolUpdate(int id, SisRol rol)

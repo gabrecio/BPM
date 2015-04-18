@@ -55,13 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\BaseEFRepository.cs" />
-    <Compile Include="Common\GenericRepository.cs" />
     <Compile Include="Common\Hasher.cs" />
-    <Compile Include="Common\IGenericRepository.cs" />
     <Compile Include="Common\IHasher.cs" />
     <Compile Include="Common\IRepository.cs" />
     <Compile Include="Common\IUnitOfWork.cs" />
     <Compile Include="Common\UnitOfWork.cs" />
+    <Compile Include="DataContext\IFrameworkEntities.cs" />
     <Compile Include="DataContext\ModelFrwk.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

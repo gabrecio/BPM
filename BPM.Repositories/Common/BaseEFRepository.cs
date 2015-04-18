@@ -86,6 +86,7 @@ namespace BPM.Repositories.Common
                 dbSet.Attach(entityToDelete);
             }
             dbSet.Remove(entityToDelete);
+            dbContext.SaveChanges();
         }
 
         public virtual void Update(TEntity entity)

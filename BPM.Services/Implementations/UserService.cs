@@ -20,19 +20,20 @@ namespace BPM.Services.Implementations
             this.userRepository = userRepository;
         }
 
-        public UserService()
-         {
-             this.userRepository = new UsuarioRepository(); 
-         }
-
-        public List<SisUsuario> GetActiveUsers()
+        public List<SisUsuario> GetActiveUsers(string query)
         {
-            return (List<SisUsuario>) userRepository.SelectAll();
+            if(String.IsNullOrEmpty(query))
+                   return (List<SisUsuario>)userRepository.Get();
+            else
+            {
+                return (List<SisUsuario>)userRepository.Get().Where(au => au.Mail.ToLower().Contains(query) || au.Nombre.ToLower().Contains(query) || au.Apellido.ToLower().Contains(query)).ToList();
+            }
+         
         }
 
         public SisUsuario GetUserById(int id)
         {
-            return userRepository.SelectByID(id);
+            return userRepository.GetById(id);
         }
 
         public SisUsuario GetUserByName(string userName)
@@ -56,8 +57,8 @@ namespace BPM.Services.Implementations
         }
         public bool UserDelete(int id)
         {
-            var user = userRepository.SelectByID(id);
-            userRepository.Delete(user);
+           // var user = userRepository.GetById(id);
+            userRepository.Delete(id);
             return true;
         }
 

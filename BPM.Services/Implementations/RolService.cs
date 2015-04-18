@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BPM.Repositories.DataContext;
 using BPM.Repositories.Interfaces;
 using BPM.Services.Interfaces;
+using BPM.ViewModels;
 
 namespace BPM.Services.Implementations
 {
@@ -21,12 +22,12 @@ namespace BPM.Services.Implementations
 
         public List<SisRol> GetActiveRoles()
         {
-            return (List<SisRol>)rolRepository.SelectAll();
+            return (List<SisRol>)rolRepository.Get();
         }
 
         public SisRol GetRolById(int id)
         {
-            return rolRepository.SelectByID(id);
+            return rolRepository.GetById(id);
         }
 
         public SisRol GetRolByName(string roleName)
@@ -51,9 +52,14 @@ namespace BPM.Services.Implementations
 
         public bool RoleDelete(int id)
         {
-            var rol = rolRepository.SelectByID(id);
+            var rol = rolRepository.GetById(id);
             rolRepository.Delete(rol);
             return true;
+        }
+
+        public List<Permissions> GetRolePermission(int id)
+        {
+            return rolRepository.GetRolPermission(id);
         }
     }
 }

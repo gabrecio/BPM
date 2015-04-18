@@ -12,7 +12,7 @@ using BPM.ViewModels;
 
 namespace BPM.Repositories.Implementations
 {
-    public class UsuarioRepository : GenericRepository<SisUsuario>, IUsuarioRepository 
+    public class UsuarioRepository : BaseEFRepository<SisUsuario, int>, IUsuarioRepository 
     {
        
         private readonly FrameworkEntities _dbContext;
@@ -23,11 +23,11 @@ namespace BPM.Repositories.Implementations
             _dbContext = dbContext;
         }
 
-        public UsuarioRepository()
+   /*     public UsuarioRepository()
         {
             _dbContext =  new FrameworkEntities();
         }
-     
+     */
         public SisUsuario GetUserByName(string username)
         {
             return (from u in _dbContext.SisUsuarios
@@ -42,22 +42,19 @@ namespace BPM.Repositories.Implementations
 
         public int UserInsert(SisUsuario user, int rolId)
         {
-           /* using (var db = new BPMContext()) 
-            {
-                user .SisRols.Add((from r in db.SisRols where r.rolId.Equals(rolId) select r).SingleOrDefault());
-                db.SisUsuarios.Add(user);
-                db.SaveChanges();                
-            }*/
+
+            user.SisRols.Add((from r in _dbContext.SisRols where r.rolId.Equals(rolId) select r).SingleOrDefault());
+            _dbContext.SisUsuarios.Add(user);
+            _dbContext.SaveChanges();
             return user.usuarioId;
         }
 
         public int UserUpdate(SisUsuario user)
         {
-           /* using (var db = new BPMContext())
-            {         
-                    var currentUser = (from u in db.SisUsuarios where u.usuarioId.Equals(user.Id) select u).SingleOrDefault();
+
+            var currentUser = (from u in _dbContext.SisUsuarios where u.usuarioId.Equals(user.usuarioId) select u).SingleOrDefault();
                     var oldRolId= currentUser.SisRols.Select(x => x.rolId).FirstOrDefault();
-                    var newRolId = user.roles.Select(x => x.Id).FirstOrDefault();
+                    var newRolId = user.SisRols.Select(x => x.rolId).FirstOrDefault();
                     currentUser.Nombre = user.Nombre;
                     currentUser.Apellido = user.Apellido;
                     currentUser.Activo = true;
@@ -69,14 +66,13 @@ namespace BPM.Repositories.Implementations
                     if (oldRolId != newRolId)
                     {
                         currentUser.SisRols.Remove(currentUser.SisRols.Where(x => x.rolId.Equals(oldRolId)).SingleOrDefault());
-                        currentUser.SisRols.Add((from r in db.SisRols where r.rolId.Equals(newRolId) select r).SingleOrDefault());
+                        currentUser.SisRols.Add((from r in _dbContext.SisRols where r.rolId.Equals(newRolId) select r).SingleOrDefault());
                     }
-                
 
-                db.SisUsuarios.Attach(currentUser);
-                db.Entry(currentUser).State = EntityState.Modified;             
-                db.SaveChanges();
-            }*/
+                    _dbContext.SisUsuarios.Attach(currentUser);
+                    _dbContext.Entry(currentUser).State = EntityState.Modified;
+                    _dbContext.SaveChanges();
+         
             return 1;
         }
 
@@ -87,8 +83,8 @@ namespace BPM.Repositories.Implementations
                         where u.usuarioId == userId                       
                         select u).SingleOrDefault();
                  permission = (from l in user.SisRols.FirstOrDefault().SisListaPermisoes
-                            join menu in db.SisMenus on l.menuId equals menu.menuId
-                            join op in db.SisOperaciones on l.opId equals op.opId
+                               join menu in _dbContext.SisMenus on l.menuId equals menu.menuId
+                               join op in _dbContext.SisOperaciones on l.opId equals op.opId
                             select  menu.Titulo + "." + op.Nombre ).ToList();
                 
           

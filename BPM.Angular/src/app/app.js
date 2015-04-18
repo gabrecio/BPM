@@ -7,12 +7,13 @@ angular.module('myapp', [
   'security',
   'ui.bootstrap',
   'ui.select',
+   'isteven-multi-select',
   'chieffancypants.loadingBar',
   'ngAnimate',
   'LocalStorageModule',
   'angularFileUpload',
   'ngIdle'
- // 'multi-select'
+ 
 ])
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');

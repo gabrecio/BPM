@@ -118,9 +118,6 @@
     <Content Include="dist\components\angular-local-storage\demo\demo.html" />
     <Content Include="dist\components\angular-local-storage\Gruntfile.js" />
     <Content Include="dist\components\angular-mocks\angular-mocks.js" />
-    <Content Include="dist\components\angular-multi-select\angular-multi-select.css" />
-    <Content Include="dist\components\angular-multi-select\angular-multi-select.js" />
-    <Content Include="dist\components\angular-multi-select\LICENSE.txt" />
     <Content Include="dist\components\angular-resource\angular-resource.js" />
     <Content Include="dist\components\angular-resource\angular-resource.min.js" />
     <Content Include="dist\components\angular-route\angular-route.js" />
@@ -176,6 +173,9 @@
     <Content Include="dist\components\html5shiv\dist\html5shiv.js" />
     <Content Include="dist\components\html5shiv\dist\html5shiv.min.js" />
     <Content Include="dist\components\html5shiv\Gruntfile.js" />
+    <Content Include="dist\components\isteven-angular-multiselect\isteven-multi-select.css" />
+    <Content Include="dist\components\isteven-angular-multiselect\isteven-multi-select.js" />
+    <Content Include="dist\components\isteven-angular-multiselect\LICENSE.txt" />
     <Content Include="dist\components\jquery\dist\jquery.js" />
     <Content Include="dist\components\jquery\dist\jquery.min.js" />
     <Content Include="dist\components\jquery\MIT-LICENSE.txt" />
@@ -338,9 +338,6 @@
     <Content Include="dist\components\angular-mocks\.bower.json" />
     <Content Include="dist\components\angular-mocks\bower.json" />
     <Content Include="dist\components\angular-mocks\README.md" />
-    <Content Include="dist\components\angular-multi-select\.bower.json" />
-    <Content Include="dist\components\angular-multi-select\bower.json" />
-    <Content Include="dist\components\angular-multi-select\CHANGELOG.md" />
     <Content Include="dist\components\angular-resource\.bower.json" />
     <Content Include="dist\components\angular-resource\angular-resource.min.js.map" />
     <Content Include="dist\components\angular-resource\bower.json" />
@@ -516,6 +513,9 @@
     <Content Include="dist\components\respond\package.json" />
     <Content Include="dist\components\respond\README.md" />
     <Content Include="dist\web.config" />
+    <Content Include="dist\components\isteven-angular-multiselect\.bower.json" />
+    <Content Include="dist\components\isteven-angular-multiselect\.npmignore" />
+    <Content Include="dist\components\isteven-angular-multiselect\bower.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

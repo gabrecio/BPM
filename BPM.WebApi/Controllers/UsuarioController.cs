@@ -37,7 +37,7 @@ namespace WebApi.Controllers
         public IEnumerable<UserViewModel> Get()
         {
             log.Info("GET /api/usuario");
-            var users = userMap.GetAllActiveUsers();
+            var users = userMap.GetAllActiveUsers("");
             return users;
         }
 
@@ -96,13 +96,8 @@ namespace WebApi.Controllers
             var userResp = new UsersResponse();
             //esto que continua llevarlo a la capa de services
             List<UserViewModel> userList;
-            // filtering
-            if ((dPageInfo.search != null && dPageInfo.search.Trim() != String.Empty))
-            {                
-                userList = userMap.GetAllActiveUsers().Where(au => au.Mail.ToLower().Contains(dPageInfo.search) || au.Nombre.ToLower().Contains(dPageInfo.search)).ToList();                
-            }
-            else
-                userList = userMap.GetAllActiveUsers().ToList();
+         
+            userList = userMap.GetAllActiveUsers(dPageInfo.search).ToList();
 
             userResp.TotalUsers = userList.Count();
             userResp.users = userList.Skip((dPageInfo.page - 1) * dPageInfo.itemsPerPage).Take(dPageInfo.itemsPerPage).ToList();

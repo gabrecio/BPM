@@ -13,11 +13,12 @@ namespace BPM.Maps.Implementations
     public class RoleMap: IRoleMap
     {
          private IRolService roleService;
-
+       
         public RoleMap() { }
         public RoleMap(IRolService roleService)
         {
             this.roleService = roleService;
+        
         }
 
         public List<RoleViewModel> GetAllActiveRoles()
@@ -40,15 +41,20 @@ namespace BPM.Maps.Implementations
             return viewModel;
         }
 
-        public List<string> GetRolePermission(int id)
+        public List<Permissions> GetRolePermission(int id)
         {
-            return new List<string>();
+            var viewModels = roleService.GetRolePermission(id);
+        
+            return viewModels;
+            
         }
 
         public RoleViewModel GetRoleByName(string rolename)
         {
-            SisRol model = roleService.GetRolByName(rolename);
-            RoleViewModel viewModel = ModelToViewModel(model);
+            RoleViewModel viewModel = null;
+            var model = roleService.GetRolByName(rolename);
+            if(model != null)
+             viewModel = ModelToViewModel(model);
             return viewModel;
         }
 
@@ -76,19 +82,28 @@ namespace BPM.Maps.Implementations
             return roleService.RoleDelete(id);
         }
 
-        private RoleViewModel ModelToViewModel(SisRol model)
+        public  RoleViewModel ModelToViewModel(SisRol model)
         {
-            var viewModel = new RoleViewModel();
-            viewModel.Id = model.rolId;
-            viewModel.Nombre = model.Nombre;
+            var viewModel = new RoleViewModel
+            {
+                Id = model.rolId,
+                Nombre = model.Nombre,
+                Activo = model.Activo,
+                FechaAlta = model.FechaAlta
+            };
             return viewModel;
         }
 
-        private SisRol ViewModelToModel(RoleViewModel viewModel)
+      
+        private static SisRol ViewModelToModel(RoleViewModel viewModel)
         {
-            var model = new SisRol();
-            model.rolId = viewModel.Id;
-            model.Nombre = viewModel.Nombre;
+            var model = new SisRol
+            {
+                rolId = viewModel.Id,
+                Nombre = viewModel.Nombre,
+                Activo = viewModel.Activo,
+                FechaAlta = viewModel.FechaAlta
+            };
             return model;
         }
     }

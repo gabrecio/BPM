@@ -10,7 +10,7 @@ namespace BPM.Services.Interfaces
 {
     public interface IUserService
     {
-        List<SisUsuario> GetActiveUsers();
+        List<SisUsuario> GetActiveUsers(string query);
         SisUsuario GetUserById(int id);
         SisUsuario GetUserByName(string userName);
         int UserInsert(SisUsuario user, int rolId);
