@@ -1,18 +1,14 @@
-﻿using BPM.Maps.Interfaces;
+﻿
 using Microsoft.Owin;
 using Owin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using WebApi.Providers;
-using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using BPM.DependencyInjection;
 using Unity.WebApi;
-using System.Web.Optimization;
+
 
 [assembly: OwinStartup(typeof(WebApi.Startup))]
 namespace WebApi
@@ -25,19 +21,16 @@ namespace WebApi
 
          
 
-            var config = new HttpConfiguration();
+            //var config = new HttpConfiguration();
 
             ConfigureOAuth(app);
            
-            WebApiConfig.Register(config);
+            //WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
            
-            UnityContainer container = UnityConfig.RegisterComponents();
-            //GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
-            config.DependencyResolver = new UnityDependencyResolver(container);
-            app.UseWebApi(config);
-          //  GlobalConfiguration.Configure(WebApiConfig.Register);
-          
+            //UnityContainer container = UnityConfig.RegisterComponents();
+            //config.DependencyResolver = new UnityDependencyResolver(container);
+            //app.UseWebApi(config);
           
         }
 

@@ -7,7 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
-using WebApi.App_Start;
+
 
 namespace WebApi
 {
@@ -15,8 +15,8 @@ namespace WebApi
     {
         public static void Register(HttpConfiguration config)
         {
-            //config.SuppressDefaultHostAuthentication();
-            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
            
             
