@@ -14,7 +14,7 @@ namespace BPM.Maps.Interfaces
         UserViewModel GetUserById(int id);
         //List<string> GetUserPermission(int id);
         UserViewModel GetUserByName(string username);
-        int UserInsert(UserViewModel user, int rolId);
+        int UserInsert(UserViewModel user);
         int UserUpdate(UserViewModel user);
         bool UserExists(int id);
         bool UserDelete(int id);

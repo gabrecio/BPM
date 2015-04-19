@@ -34,17 +34,10 @@ angular.module('myapp').controller('UsersCtrl', function($scope, $routeParams, a
     $scope.keyTimer = setTimeout(function() {
       $scope.pagingInfo.search = $scope.searchUsers ? $scope.searchUsers : '';
       var usuarios = null;
-     /* usuarios = apiSvc.findUsers.findUsers({
-        pagingInfo: JSON.stringify($scope.pagingInfo)
-      }, function() {
-        $scope.users = usuarios.users;
-        $scope.pagingInfo.totalItems = usuarios.totalUsers;
-      })*/
-      usuarios = apiSvc.findUsers.findUsers($scope.pagingInfo, function () {
-          $scope.users = usuarios.users;
-          $scope.pagingInfo.totalItems = usuarios.totalUsers;
-      })
-
+        usuarios = apiSvc.findUsers.findUsers($scope.pagingInfo, function() {
+            $scope.users = usuarios.users;
+            $scope.pagingInfo.totalItems = usuarios.totalUsers;
+        });
     }, 200);
 
   };

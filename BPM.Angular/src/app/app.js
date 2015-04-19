@@ -21,6 +21,14 @@ angular.module('myapp', [
   .config(function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
   })
+    .config(function (localStorageServiceProvider) {
+        localStorageServiceProvider
+          .setPrefix('BPM');
+    })
+.config(function (localStorageServiceProvider) {
+    localStorageServiceProvider
+      .setStorageType('sessionStorage');
+})
   .config(function($idleProvider, $keepaliveProvider) {
     $idleProvider.idleDuration(9 * 60);
     $idleProvider.warningDuration(60);

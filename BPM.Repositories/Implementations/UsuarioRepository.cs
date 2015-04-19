@@ -8,7 +8,7 @@ using BPM.Repositories.DataContext;
 using BPM.Repositories.Interfaces;
 using BPM.Repositories;
 using System.Data.Entity;
-using BPM.ViewModels;
+//using BPM.ViewModels;
 
 namespace BPM.Repositories.Implementations
 {
@@ -40,10 +40,9 @@ namespace BPM.Repositories.Implementations
             return _dbContext.SisUsuarios.Count(e => e.usuarioId == id) > 0;
         }
 
-        public int UserInsert(SisUsuario user, int rolId)
+        public int UserInsert(SisUsuario user)
         {
 
-            user.SisRols.Add((from r in _dbContext.SisRols where r.rolId.Equals(rolId) select r).SingleOrDefault());
             _dbContext.SisUsuarios.Add(user);
             _dbContext.SaveChanges();
             return user.usuarioId;

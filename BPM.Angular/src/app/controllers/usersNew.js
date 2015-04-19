@@ -62,7 +62,7 @@ angular.module('myapp').controller('usersNewCtrl', function($scope, $routeParams
           alertSvc.send('success', 'El usuario se creo correctamente.');
         });
     } else {
-      $scope.User.password = ($scope.User.password == "********") ? "" : $scope.User.password;
+      $scope.User.password = ($scope.User.password === "********") ? "" : $scope.User.password;
       $scope.User.Id = $scope.UserId;
 
       apiSvc.User.update({
@@ -82,10 +82,10 @@ angular.module('myapp').controller('usersNewCtrl', function($scope, $routeParams
   };
 
   $scope.usernameChaged = function() {
-    if ($scope.User.mail) {
-      var userNameValidation = apiSvc.usernameValidation.usernameValidation({
-        username: $scope.User.mail
-      }, function() {
+      if ($scope.User.mail) {
+     
+          var userNameValidation = apiSvc.usernameValidation.usernameValidation({'username':$scope.User.mail},
+      function() {
         var serverMessage2 = $parse('user.mail.$error.userExists');
         switch (userNameValidation.status) {
           case 200:

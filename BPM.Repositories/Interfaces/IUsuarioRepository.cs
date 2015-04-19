@@ -9,15 +9,9 @@
  * 03/06/2014                                       GR          Implementación Incial
  * ----------------------------------------------------------------------------------------------- 
  */
-using System;
 using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 using BPM.Repositories.DataContext;
 using BPM.Repositories.Common;
-using BPM.ViewModels;
 
 namespace BPM.Repositories.Interfaces
 {
@@ -25,7 +19,7 @@ namespace BPM.Repositories.Interfaces
     {
         SisUsuario GetUserByName(string username);
         bool UserExists(int id);
-        int UserInsert(SisUsuario newUser, int rolId);
+        int UserInsert(SisUsuario newUser);
         int UserUpdate(SisUsuario user);
         IEnumerable<string> GetUserPermission(int userId);
         SisUsuario FindUser(string userName, string password);

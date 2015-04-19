@@ -13,11 +13,12 @@ namespace BPM.Services.Interfaces
         List<SisUsuario> GetActiveUsers(string query);
         SisUsuario GetUserById(int id);
         SisUsuario GetUserByName(string userName);
-        int UserInsert(SisUsuario user, int rolId);
+        int UserInsert(SisUsuario user);
         int UserUpdate(SisUsuario user);
         bool UserExists(int id);
         bool UserDelete(int id);
         SisUsuario FindUser(string userName, string password);
         IEnumerable<string> GetUserPermission(int userId);
+       
     }
 }

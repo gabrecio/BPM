@@ -16,5 +16,6 @@ namespace BPM.Services.Interfaces
         bool RoleExists(int id);
         bool RoleDelete(int id);
         List<Permissions> GetRolePermission(int id);
+        List<int> GetListaPermisoByRol(int id);
     }
 }

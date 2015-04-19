@@ -39,7 +39,7 @@ angular.module('myapp').controller('rolesNewCtrl', function($scope, $routeParams
                 name: elem.operacion + '-' + element.menu,
                 listaPermisoId: elem.listaPermisoId,
                 maker: '',
-                selected: elem.activo
+                ticked: elem.activo
               }
               $scope.rolPermissions.push(newNode);
             });
@@ -70,7 +70,7 @@ angular.module('myapp').controller('rolesNewCtrl', function($scope, $routeParams
 
   $scope.save = function() {
 
-    angular.forEach($scope.rolPermissions, function(value, key) {
+      angular.forEach($scope.outputRolPermissions, function (value, key) {
       var newPermission = {
         Operacion: value.name,
         Activo: value.selected,

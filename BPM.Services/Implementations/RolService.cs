@@ -13,10 +13,13 @@ namespace BPM.Services.Implementations
     public class RolService: IRolService
     {
         private IRolRepository rolRepository;
+      
+
 
         public RolService(IRolRepository rolRepository)
         {
             this.rolRepository = rolRepository;
+        
         }
 
 
@@ -60,6 +63,12 @@ namespace BPM.Services.Implementations
         public List<Permissions> GetRolePermission(int id)
         {
             return rolRepository.GetRolPermission(id);
+          
+        }
+
+        public List<int> GetListaPermisoByRol(int id)
+        {
+            return rolRepository.GetListaPermisoByRol(id);
         }
     }
 }

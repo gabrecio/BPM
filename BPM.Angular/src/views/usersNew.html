@@ -13,8 +13,8 @@
 						<i class="fa fa-asterisk fa-required"></i>
 					</label>
 					</div>
-					<div class="col-md-4">						
-						<input type="email" name="mail" ng-model="User.mail" ng-required="true" placeholder="Correo electronico" ng-blur="usernameChaged()" ng-disabled="UserId != '0'" focus-me="shouldBeOpen" class="form-control"/>
+					<div class="col-md-4">	 				
+						<input  name="mail" ng-model="User.mail" ng-required="true" placeholder="Correo electronico" ng-blur="usernameChaged()" ng-disabled="UserId != '0'" focus-me="shouldBeOpen" class="form-control"/>
 						<div ng-show="user.mail.$dirty || user.mail.$error.userExists" class="alert-danger">
 							<i ng-show="user.mail.$error.required">El campo email es requerido.</i>
 							<i ng-show="user.mail.$error.email">No es una dirección de correo válida.</i>						

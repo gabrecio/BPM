@@ -95,9 +95,11 @@
       <DependentUpon>ModelFrwk.tt</DependentUpon>
     </Compile>
     <Compile Include="Implementations\AuthRepository.cs" />
+    <Compile Include="Implementations\ListaPermisoRepository.cs" />
     <Compile Include="Implementations\RolRepository.cs" />
     <Compile Include="Implementations\UsuarioRepository.cs" />
     <Compile Include="Interfaces\IAuthRepository.cs" />
+    <Compile Include="Interfaces\IListaPermisoRepository.cs" />
     <Compile Include="Interfaces\IRolRepository.cs" />
     <Compile Include="Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

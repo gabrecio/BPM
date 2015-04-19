@@ -62,11 +62,10 @@ angular.module('myapp').service('apiSvc', function($resource, API, localStorageS
       }
   });
 
-  core.usernameValidation = $resource(base + '/usuario/usernameValidation/:username', {
-    username: '@username'
+  core.usernameValidation = $resource(base + '/usuario/usernameValidation', {
   }, {
     'usernameValidation': {
-      url: base + '/usuario/usernameValidation/:username',
+      url: base + '/usuario/usernameValidation',
       method: 'GET',
       isArray: false,
       cache: false

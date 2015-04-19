@@ -15,14 +15,12 @@ namespace BPM.Maps.Implementations
     public class UserMap : IUserMap
     {
         private IUserService userService;
+        private IRolService roleService;
 
-        //public UserMap()
-        //{
-        //    this.userService = new UserService(); 
-        //}
-        public UserMap(IUserService userService)
+        public UserMap(IUserService userService, IRolService roleService)
         {
             this.userService = userService;
+            this.roleService = roleService;
         }
 
         public List<UserViewModel> GetAllActiveUsers(string query)
@@ -54,7 +52,8 @@ namespace BPM.Maps.Implementations
         public UserViewModel GetUserByName(string username)
         {
             SisUsuario model = userService.GetUserByName(username);
-            UserViewModel viewModel = ModelToViewModel(model);
+            UserViewModel viewModel = null;
+            if(model != null) viewModel = ModelToViewModel(model);
             return viewModel;
         }
 
@@ -81,30 +80,27 @@ namespace BPM.Maps.Implementations
             model.Mail = viewModel.Mail;
             model.Activo = viewModel.Activo;
             model.Apellido = viewModel.Apellido;
-            model.FechaAlta = viewModel.FechaAlta;
+            model.Password = viewModel.Password;
+            model.FechaAlta = (new DateTime(2010, 5, 1, 8, 30, 52).CompareTo(viewModel.FechaAlta) > 0)
+                ? DateTime.Now
+                : viewModel.FechaAlta;
             model.SisRols = new List<SisRol>();
             if (viewModel.roles != null)
             {
                 foreach (RoleViewModel rol in viewModel.roles)
                 {
-                    model.SisRols.Add(new SisRol()
-                    {
-                        Nombre = rol.Nombre,
-                        rolId = rol.Id, 
-                        Activo = rol.Activo,
-                        FechaAlta = rol.FechaAlta
-                    });
+                    model.SisRols.Add( roleService.GetRolById(rol.Id));
                 }
             }
 
             return model;
         }
 
-        public int UserInsert(UserViewModel user, int rolId)
+        public int UserInsert(UserViewModel user)
         {
             var usuario = ViewModelToModel(user);
 
-            return userService.UserInsert(usuario, rolId);
+            return userService.UserInsert(usuario);
         }
 
         public int UserUpdate(UserViewModel user)

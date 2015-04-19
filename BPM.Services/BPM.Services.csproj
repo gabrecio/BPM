@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="Implementations\ListaPermisoService.cs" />
     <Compile Include="Implementations\RolService.cs" />
     <Compile Include="Implementations\UserService.cs" />
+    <Compile Include="Interfaces\IListaPermisoService.cs" />
     <Compile Include="Interfaces\IRolService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

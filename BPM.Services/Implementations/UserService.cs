@@ -41,9 +41,9 @@ namespace BPM.Services.Implementations
             return userRepository.GetUserByName(userName);
         }
 
-        public int UserInsert(SisUsuario user, int rolId)
+        public int UserInsert(SisUsuario user)
         {
-            return userRepository.UserInsert(user, rolId);
+            return userRepository.UserInsert(user);
         }
 
         public int UserUpdate(SisUsuario user)

@@ -9,16 +9,9 @@ using BPM.Services;
 //using BPM.Services.Interfaces;
 using BPM.Services.Implementations;
 using BPM.Services.Interfaces;
-using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Microsoft.Practices.Unity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
-using Unity.WebApi;
 
 
 namespace BPM.DependencyInjection
@@ -54,6 +47,7 @@ namespace BPM.DependencyInjection
 
           container.RegisterType<IUserService, UserService>();
           container.RegisterType<IRolService, RolService>();
+          container.RegisterType<IListaPermisoService, ListaPermisoService>();
            
             #endregion
 
@@ -61,6 +55,7 @@ namespace BPM.DependencyInjection
 
             container.RegisterType<IUsuarioRepository, UsuarioRepository>();
             container.RegisterType<IRolRepository, RolRepository>();
+            container.RegisterType<IListaPermisoRepository, ListaPermisoRepository>();
       
             #endregion
 

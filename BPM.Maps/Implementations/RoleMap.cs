@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using BPM.Maps.Interfaces; 
@@ -13,12 +14,14 @@ namespace BPM.Maps.Implementations
     public class RoleMap: IRoleMap
     {
          private IRolService roleService;
-       
+        private IListaPermisoService listaPermisoService;
+
         public RoleMap() { }
-        public RoleMap(IRolService roleService)
+        public RoleMap(IRolService roleService, IListaPermisoService listaPermisoService)
         {
             this.roleService = roleService;
-        
+            this.listaPermisoService = listaPermisoService;
+
         }
 
         public List<RoleViewModel> GetAllActiveRoles()
@@ -43,9 +46,9 @@ namespace BPM.Maps.Implementations
 
         public List<Permissions> GetRolePermission(int id)
         {
-            var viewModels = roleService.GetRolePermission(id);
+            return roleService.GetRolePermission(id);
         
-            return viewModels;
+          
             
         }
 
@@ -82,7 +85,7 @@ namespace BPM.Maps.Implementations
             return roleService.RoleDelete(id);
         }
 
-        public  RoleViewModel ModelToViewModel(SisRol model)
+        public RoleViewModel ModelToViewModel(SisRol model)
         {
             var viewModel = new RoleViewModel
             {
@@ -90,19 +93,21 @@ namespace BPM.Maps.Implementations
                 Nombre = model.Nombre,
                 Activo = model.Activo,
                 FechaAlta = model.FechaAlta
+               
             };
             return viewModel;
         }
 
       
-        private static SisRol ViewModelToModel(RoleViewModel viewModel)
+        private SisRol ViewModelToModel(RoleViewModel viewModel)
         {
             var model = new SisRol
             {
                 rolId = viewModel.Id,
                 Nombre = viewModel.Nombre,
                 Activo = viewModel.Activo,
-                FechaAlta = viewModel.FechaAlta
+                FechaAlta = (new DateTime(2010, 5, 1, 8, 30, 52).CompareTo(viewModel.FechaAlta) > 0) ? DateTime.Now : viewModel.FechaAlta,
+                SisListaPermisoes =  viewModel.Permissions.ToList().Select(item => listaPermisoService.GetListaPermisoById(item.ListaPermisoId)).ToList()
             };
             return model;
         }

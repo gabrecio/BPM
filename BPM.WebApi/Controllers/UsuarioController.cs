@@ -48,10 +48,6 @@ namespace WebApi.Controllers
         [Authorize]
         [HttpGet]
         [ResponseType(typeof(UserViewModel))]
-        /// <summary>
-        /// GET api/usuario/5 by ID.
-        /// </summary>
-        /// <param name="id">The ID of the data.</param>
         public IHttpActionResult Get(int id)
         {
             log.Info("GET api/usuario/" + id);
@@ -108,9 +104,9 @@ namespace WebApi.Controllers
         }     
 
         // GET api/usuario/usernameValidation/5
-        //[Authorize]
+        [Authorize]
         [HttpGet]        
-        [Route("usernameValidation/{username}")]
+        [Route("usernameValidation")]
         public IHttpActionResult usernameValidation(string username)
         {
             log.Info("GET api/usuario/usernameValidation/" + username);
@@ -140,7 +136,7 @@ namespace WebApi.Controllers
               }
               log.Info("POST api/usuario * usuarioId: " + user.Id); 
 
-              user.Id = userMap.UserInsert(user, user.roles.Select(x => x.Id).FirstOrDefault());
+              user.Id = userMap.UserInsert(user);
               //return 201 Created
               return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);           
            

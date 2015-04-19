@@ -13,5 +13,6 @@ namespace BPM.Repositories.Interfaces
         int RolInsert(SisRol rol);
         int RolUpdate(int id, SisRol rol);
         bool RolHasUsers(int id);
+        List<int> GetListaPermisoByRol(int id);
     }
 }
